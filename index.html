@@ -1,1 +1,749 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aman — Roblox Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          mono: ['Share Tech Mono', 'monospace'],
+          display: ['Orbitron', 'monospace'],
+          body: ['Rajdhani', 'sans-serif'],
+        },
+        colors: {
+          roblox: '#FF3333',
+          roblox2: '#FF6B35',
+          neon: '#00FFB3',
+          dim: '#0D1117',
+          panel: '#0A0F1A',
+          border: '#1E2D3D',
+          muted: '#3D5A6E',
+          code: '#E6EDF3',
+        },
+        animation: {
+          'glitch': 'glitch 2s infinite',
+          'scanline': 'scanline 8s linear infinite',
+          'pulse-neon': 'pulseNeon 2s ease-in-out infinite',
+          'float': 'float 6s ease-in-out infinite',
+          'type': 'type 3.5s steps(30) forwards',
+          'blink': 'blink 1s step-end infinite',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --roblox: #FF3333;
+    --roblox2: #FF6B35;
+    --neon: #00FFB3;
+    --dim: #0D1117;
+    --panel: #0A0F1A;
+    --border: #1E2D3D;
+    --muted: #3D5A6E;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dim);
+    color: #C9D1D9;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 12px; height: 12px;
+    border: 2px solid var(--neon);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-trail {
+    width: 4px; height: 4px;
+    background: var(--roblox);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+  }
+
+  /* Canvas rain */
+  #matrix-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Scanlines overlay */
+  .scanlines {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+    animation: scanline 8s linear infinite;
+  }
+
+  @keyframes scanline {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100vh; }
+  }
+
+  /* Glitch effect */
+  @keyframes glitch {
+    0%, 90%, 100% { text-shadow: none; transform: translate(0); }
+    92% { transform: translate(-3px, 0); text-shadow: 3px 0 var(--roblox); }
+    94% { transform: translate(3px, 0); text-shadow: -3px 0 var(--neon); }
+    96% { transform: translate(0, -2px); text-shadow: 2px 0 var(--roblox2); }
+    98% { transform: translate(0); }
+  }
+
+  .glitch { animation: glitch 3s infinite; }
+
+  @keyframes pulseNeon {
+    0%, 100% { box-shadow: 0 0 5px var(--neon), 0 0 10px var(--neon); }
+    50% { box-shadow: 0 0 15px var(--neon), 0 0 30px var(--neon), 0 0 50px var(--neon); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .fade-in-up { animation: fadeInUp 0.7s ease forwards; }
+  .slide-in-left { animation: slideInLeft 0.6s ease forwards; }
+
+  /* Neon border */
+  .neon-border {
+    border: 1px solid var(--neon);
+    box-shadow: 0 0 8px rgba(0,255,179,0.3), inset 0 0 8px rgba(0,255,179,0.05);
+  }
+  .roblox-border {
+    border: 1px solid var(--roblox);
+    box-shadow: 0 0 8px rgba(255,51,51,0.3), inset 0 0 8px rgba(255,51,51,0.05);
+  }
+
+  /* HUD corners */
+  .hud-box {
+    position: relative;
+    border: 1px solid var(--border);
+    background: rgba(10, 15, 26, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  .hud-box::before, .hud-box::after {
+    content: '';
+    position: absolute;
+    width: 12px; height: 12px;
+    border-color: var(--neon);
+    border-style: solid;
+  }
+  .hud-box::before {
+    top: -1px; left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+  .hud-box::after {
+    bottom: -1px; right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+
+  /* Skill bar */
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--roblox), var(--roblox2));
+    position: relative;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(255,51,51,0.5);
+  }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-link {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent;
+  }
+  .nav-link:hover {
+    color: var(--neon);
+    border-bottom-color: var(--neon);
+  }
+
+  /* Project card */
+  .proj-card {
+    background: rgba(10,15,26,0.9);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .proj-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,51,51,0.05), transparent);
+    transition: left 0.5s ease;
+  }
+  .proj-card:hover::before { left: 100%; }
+  .proj-card:hover {
+    border-color: var(--roblox);
+    box-shadow: 0 0 20px rgba(255,51,51,0.2), 0 20px 40px rgba(0,0,0,0.4);
+    transform: translateY(-4px);
+  }
+
+  .tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    background: rgba(255,51,51,0.1);
+    border: 1px solid rgba(255,51,51,0.3);
+    color: var(--roblox2);
+    letter-spacing: 0.05em;
+  }
+
+  .tag-neon {
+    background: rgba(0,255,179,0.08);
+    border-color: rgba(0,255,179,0.3);
+    color: var(--neon);
+  }
+
+  /* Section title */
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--neon);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Typing animation */
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2s steps(20) 0.5s forwards;
+  }
+  @keyframes typing {
+    to { width: 100%; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dim); }
+  ::-webkit-scrollbar-thumb { background: var(--roblox); border-radius: 2px; }
+
+  /* Section reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Diagonal hero accent */
+  .hero-diag {
+    position: absolute;
+    right: -10%;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,51,51,0.03) 0%, transparent 60%);
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Status dot */
+  .status-dot {
+    width: 8px; height: 8px;
+    background: var(--neon);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 6px var(--neon);
+    animation: pulseNeon 2s ease-in-out infinite;
+  }
+
+  /* Grid lines background section */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(30,45,61,0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,45,61,0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- Matrix rain -->
+<canvas id="matrix-canvas"></canvas>
+<div class="scanlines"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+    <div class="flex items-center gap-3">
+      <span class="status-dot"></span>
+      <span class="font-mono text-xs text-neon">AMAN.DEV</span>
+      <span class="font-mono text-xs text-muted">/ delhi, in</span>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="nav-link">about</a>
+      <a href="#skills" class="nav-link">skills</a>
+      <a href="#work" class="nav-link">work</a>
+      <a href="#contact" class="nav-link">contact</a>
+    </div>
+    <div class="font-mono text-xs text-muted" id="live-time"></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center pt-14 overflow-hidden">
+  <div class="hero-diag"></div>
+
+  <!-- Left vertical text -->
+  <div class="absolute left-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4">
+    <div class="font-mono text-xs text-muted" style="writing-mode:vertical-rl; letter-spacing:0.15em">ROBLOX · LUAU · GAME DEV</div>
+    <div style="width:1px; height:60px; background: linear-gradient(to bottom, var(--roblox), transparent)"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left content -->
+      <div>
+        <div class="section-label mb-6 fade-in-up">// hello world</div>
+
+        <div class="mb-2 fade-in-up" style="animation-delay:0.1s">
+          <span class="font-mono text-sm text-muted">const dev = </span>
+          <span class="font-mono text-sm" style="color:var(--roblox2)">"</span>
+        </div>
+
+        <h1 class="font-display font-black mb-1 glitch"
+            style="font-size: clamp(3.5rem, 8vw, 6rem); line-height:1; color:#E6EDF3;">
+          AMAN
+        </h1>
+
+        <div class="font-display font-black mb-6"
+             style="font-size: clamp(1.2rem, 3vw, 2rem); background: linear-gradient(90deg, var(--roblox), var(--roblox2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+          ROBLOX DEVELOPER
+        </div>
+
+        <div class="font-mono text-sm text-muted mb-8 leading-relaxed max-w-lg fade-in-up" style="animation-delay:0.2s">
+          <span style="color:var(--neon)">&gt;</span> Building immersive game systems from Delhi.<br>
+          <span style="color:var(--neon)">&gt;</span> Gun systems, combat engines &amp; more.<br>
+          <span style="color:var(--neon)">&gt;</span> Currently mastering Advanced Lua.<span style="animation: blink 1s step-end infinite; display:inline-block; color:var(--neon)">█</span>
+        </div>
+
+        <div class="flex flex-wrap gap-3 fade-in-up" style="animation-delay:0.3s">
+          <a href="#work"
+             class="font-display text-sm font-bold px-6 py-3 tracking-widest uppercase transition-all duration-300"
+             style="background: var(--roblox); color:white; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); box-shadow: 0 0 20px rgba(255,51,51,0.4);"
+             onmouseover="this.style.boxShadow='0 0 40px rgba(255,51,51,0.7)'"
+             onmouseout="this.style.boxShadow='0 0 20px rgba(255,51,51,0.4)'">
+            View Work
+          </a>
+          <a href="#contact"
+             class="font-display text-sm font-bold px-6 py-3 tracking-widest uppercase border transition-all duration-300 neon-border"
+             style="color:var(--neon);"
+             onmouseover="this.style.background='rgba(0,255,179,0.08)'"
+             onmouseout="this.style.background='transparent'">
+            Hire Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: HUD panel -->
+      <div class="hud-box p-6 fade-in-up" style="animation-delay:0.4s">
+        <div class="font-mono text-xs text-muted mb-4 flex items-center gap-2">
+          <span style="color:var(--roblox)">◉</span> DEVELOPER_PROFILE.lua
+        </div>
+        <pre class="font-mono text-sm leading-relaxed" style="color: #8B949E">
+<span style="color:var(--neon)">local</span> <span style="color:#79C0FF">Aman</span> = {
+  name    = <span style="color:var(--roblox2)">"Aman"</span>,
+  origin  = <span style="color:var(--roblox2)">"Delhi, India 🇮🇳"</span>,
+  role    = <span style="color:var(--roblox2)">"Roblox Developer"</span>,
+
+  langs   = {
+    <span style="color:var(--roblox2)">"Luau"</span>, <span style="color:var(--roblox2)">"Python"</span>,
+    <span style="color:var(--roblox2)">"TypeScript"</span>, <span style="color:var(--roblox2)">"C"</span>,
+    <span style="color:var(--roblox2)">"HTML/CSS/JS"</span>,
+  },
+
+  learning = <span style="color:var(--roblox2)">"Advanced Lua"</span>,
+  status   = <span style="color:#3FB950">✓ open to work</span>,
+}</pre>
+        <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+          <span class="font-mono text-xs text-muted">runtime: Roblox Studio</span>
+          <span class="font-mono text-xs" style="color:var(--neon)">v2025.1 ●</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom line -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <span class="font-mono text-xs text-muted">scroll</span>
+    <div style="width:1px; height:40px; background: linear-gradient(to bottom, var(--muted), transparent); animation: float 2s ease-in-out infinite;"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-24 grid-bg relative z-10">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="section-label mb-2 reveal">// 001</div>
+    <h2 class="font-display font-black text-4xl mb-16 reveal" style="color:#E6EDF3">
+      TECH <span style="color:var(--roblox)">STACK</span>
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-x-16 gap-y-8 reveal">
+      <!-- skills -->
+      <div class="space-y-5">
+        <div class="font-mono text-xs text-neon mb-3 uppercase tracking-widest">// Game Dev</div>
+        <div id="skills-game"></div>
+      </div>
+      <div class="space-y-5">
+        <div class="font-mono text-xs text-neon mb-3 uppercase tracking-widest">// Web & Systems</div>
+        <div id="skills-web"></div>
+      </div>
+    </div>
+
+    <!-- Lang tags -->
+    <div class="flex flex-wrap gap-3 mt-16 reveal">
+      <div class="font-mono text-xs text-muted mr-4 self-center">Also knows →</div>
+      <span class="tag">REACT</span>
+      <span class="tag">REACT NATIVE</span>
+      <span class="tag">SCSS</span>
+      <span class="tag tag-neon">PYTHON</span>
+      <span class="tag tag-neon">C</span>
+      <span class="tag" style="background:rgba(255,107,53,0.1); border-color:rgba(255,107,53,0.3); color:var(--roblox2)">ADV LUA ← learning</span>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="py-24 relative z-10">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="section-label mb-2 reveal">// 002</div>
+    <h2 class="font-display font-black text-4xl mb-4 reveal" style="color:#E6EDF3">
+      GAME <span style="color:var(--roblox)">SYSTEMS</span>
+    </h2>
+    <p class="font-body text-muted mb-16 text-lg reveal">Built for Roblox. Engineered to perform.</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Gun System -->
+      <div class="proj-card p-6 reveal">
+        <div class="flex items-start justify-between mb-4">
+          <div class="font-mono text-3xl" style="color:var(--roblox)">⚙</div>
+          <div class="font-mono text-xs text-muted">SYS_01</div>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-3" style="color:#E6EDF3">Gun System</h3>
+        <p class="font-body text-muted text-base mb-5 leading-relaxed">
+          Modular, server-validated gun framework. Includes raycasting, recoil simulation, ADS mechanics, and custom hit detection — all network-optimized.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="tag">LUAU</span>
+          <span class="tag tag-neon">REMOTES</span>
+          <span class="tag">RAYCAST</span>
+        </div>
+        <div class="font-mono text-xs border-t border-border pt-4 flex justify-between items-center" style="color:var(--muted)">
+          <span>Roblox Studio</span>
+          <span style="color:var(--neon)">→ view</span>
+        </div>
+      </div>
+
+      <!-- Combat System -->
+      <div class="proj-card p-6 reveal" style="animation-delay:0.1s">
+        <div class="flex items-start justify-between mb-4">
+          <div class="font-mono text-3xl" style="color:var(--roblox)">⚡</div>
+          <div class="font-mono text-xs text-muted">SYS_02</div>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-3" style="color:#E6EDF3">Combat System</h3>
+        <p class="font-body text-muted text-base mb-5 leading-relaxed">
+          Melee combat engine with combo chains, hitstun, animations, and damage falloff. Built with a state machine for clean transitions.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="tag">LUAU</span>
+          <span class="tag tag-neon">STATE MACHINE</span>
+          <span class="tag">ANIMATION</span>
+        </div>
+        <div class="font-mono text-xs border-t border-border pt-4 flex justify-between items-center" style="color:var(--muted)">
+          <span>Roblox Studio</span>
+          <span style="color:var(--neon)">→ view</span>
+        </div>
+      </div>
+
+      <!-- Placeholder card 3 -->
+      <div class="proj-card p-6 reveal" style="animation-delay:0.2s; border-style:dashed;">
+        <div class="flex items-start justify-between mb-4">
+          <div class="font-mono text-3xl" style="color:var(--muted)">+</div>
+          <div class="font-mono text-xs text-muted">SYS_03</div>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-3" style="color:var(--muted)">More Coming</h3>
+        <p class="font-body text-muted text-base mb-5 leading-relaxed">
+          Inventory system, data store module, and more projects currently in progress. Stay tuned.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="tag">WIP</span>
+        </div>
+        <div class="font-mono text-xs border-t border-border pt-4 flex justify-between items-center" style="color:var(--muted)">
+          <span>in progress...</span>
+          <span style="animation: blink 1s step-end infinite; color:var(--neon)">█</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 grid-bg relative z-10">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="section-label mb-2 reveal">// 003</div>
+    <h2 class="font-display font-black text-4xl mb-16 reveal" style="color:#E6EDF3">
+      ABOUT <span style="color:var(--roblox)">ME</span>
+    </h2>
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <div class="reveal">
+        <p class="font-body text-lg leading-relaxed mb-6" style="color:#8B949E">
+          I'm Aman, a self-taught developer from New Delhi, India — building game systems on Roblox that actually feel good to play.
+        </p>
+        <p class="font-body text-lg leading-relaxed mb-6" style="color:#8B949E">
+          I got into coding through Roblox Studio and fell in love with how game mechanics work under the hood. Now I write Luau, dabble in TypeScript, Python, and C, and recently jumped into React Native for mobile stuff.
+        </p>
+        <p class="font-body text-lg leading-relaxed" style="color:#8B949E">
+          Currently deep-diving into Advanced Lua patterns — coroutines, metatables, the whole rabbit hole. If it involves making something feel responsive and fun, I'm in.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 gap-4 reveal">
+        <div class="hud-box p-5 text-center">
+          <div class="font-display text-4xl font-black mb-1" style="color:var(--roblox)">6+</div>
+          <div class="font-mono text-xs text-muted uppercase tracking-widest">Languages</div>
+        </div>
+        <div class="hud-box p-5 text-center">
+          <div class="font-display text-4xl font-black mb-1" style="color:var(--neon)">2+</div>
+          <div class="font-mono text-xs text-muted uppercase tracking-widest">Game Systems</div>
+        </div>
+        <div class="hud-box p-5 text-center">
+          <div class="font-display text-4xl font-black mb-1" style="color:var(--roblox2)">∞</div>
+          <div class="font-mono text-xs text-muted uppercase tracking-widest">Ideas in Queue</div>
+        </div>
+        <div class="hud-box p-5 text-center">
+          <div class="font-display text-4xl font-black mb-1" style="color:var(--roblox)">DEL</div>
+          <div class="font-mono text-xs text-muted uppercase tracking-widest">Based in Delhi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 relative z-10">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <div class="section-label mb-2 reveal" style="justify-content:center; display:flex">// 004</div>
+    <h2 class="font-display font-black mb-4 reveal" style="font-size: clamp(2.5rem, 6vw, 4.5rem); color:#E6EDF3">
+      LET'S <span style="color:var(--roblox)">BUILD</span>
+    </h2>
+    <p class="font-body text-muted text-lg mb-12 reveal">Got a Roblox project? Want a custom game system? Hit me up.</p>
+
+    <div class="flex flex-wrap justify-center gap-4 reveal">
+      <a href="mailto:aman@example.com"
+         class="font-display text-sm font-bold px-8 py-4 tracking-widest uppercase transition-all duration-300"
+         style="background: linear-gradient(135deg, var(--roblox), var(--roblox2)); color:white; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); box-shadow: 0 0 30px rgba(255,51,51,0.4);">
+        Email Me
+      </a>
+      <a href="https://github.com/" target="_blank"
+         class="font-display text-sm font-bold px-8 py-4 tracking-widest uppercase neon-border transition-all duration-300"
+         style="color:var(--neon);"
+         onmouseover="this.style.background='rgba(0,255,179,0.08)'"
+         onmouseout="this.style.background='transparent'">
+        GitHub
+      </a>
+      <a href="https://discord.gg/" target="_blank"
+         class="font-display text-sm font-bold px-8 py-4 tracking-widest uppercase transition-all duration-300"
+         style="border:1px solid var(--roblox2); color:var(--roblox2);"
+         onmouseover="this.style.background='rgba(255,107,53,0.08)'"
+         onmouseout="this.style.background='transparent'">
+        Discord
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t py-8 relative z-10" style="border-color:var(--border)">
+  <div class="max-w-6xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
+    <span class="font-mono text-xs text-muted">© 2025 Aman — Delhi, India</span>
+    <span class="font-mono text-xs text-muted">Built with <span style="color:var(--roblox)">♥</span> & Luau vibes</span>
+  </div>
+</footer>
+
+<script>
+// ─── Matrix Rain ───
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const cols = Math.floor(canvas.width / 20);
+const drops = Array(cols).fill(1);
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789<>(){}[];:=+/*#@$local function end if then return for do while repeat until';
+function drawMatrix() {
+  ctx.fillStyle = 'rgba(13,17,23,0.05)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#FF3333';
+  ctx.font = '14px Share Tech Mono';
+  drops.forEach((y, i) => {
+    const char = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(char, i * 20, y * 20);
+    if (y * 20 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+    drops[i]++;
+  });
+}
+setInterval(drawMatrix, 50);
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+// ─── Custom Cursor ───
+const cursor = document.getElementById('cursor');
+const trail = document.getElementById('cursorTrail');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    trail.style.left = e.clientX + 'px';
+    trail.style.top = e.clientY + 'px';
+  }, 100);
+});
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%,-50%) scale(2)');
+  el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%,-50%) scale(1)');
+});
+
+// ─── Live Time ───
+function updateTime() {
+  const now = new Date();
+  document.getElementById('live-time').textContent =
+    now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+// ─── Skills ───
+const gameSkills = [
+  { name: 'Luau / Roblox Studio', pct: 88 },
+  { name: 'Game Systems Design', pct: 82 },
+  { name: 'Advanced Lua (learning)', pct: 45 },
+];
+const webSkills = [
+  { name: 'HTML / CSS / JS', pct: 85 },
+  { name: 'TypeScript / React', pct: 75 },
+  { name: 'Python', pct: 70 },
+  { name: 'C', pct: 60 },
+];
+
+function renderSkills(arr, containerId) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = arr.map(s => `
+    <div class="mb-5">
+      <div class="flex justify-between mb-1">
+        <span class="font-mono text-sm" style="color:#C9D1D9">${s.name}</span>
+        <span class="font-mono text-xs" style="color:var(--roblox2)">${s.pct}%</span>
+      </div>
+      <div style="height:3px; background:var(--border); border-radius:2px; overflow:hidden">
+        <div class="skill-fill" style="width:0%" data-target="${s.pct}"></div>
+      </div>
+    </div>
+  `).join('');
+}
+renderSkills(gameSkills, 'skills-game');
+renderSkills(webSkills, 'skills-web');
+
+// ─── Scroll Reveal ───
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      // Animate skill bars
+      e.target.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.style.width = bar.dataset.target + '%';
+      });
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => observer.observe(el));
+
+// Also trigger for skills section directly
+document.querySelectorAll('.skill-fill').forEach(bar => {
+  const sectionObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      bar.style.width = bar.dataset.target + '%';
+      sectionObs.disconnect();
+    }
+  }, { threshold: 0.3 });
+  sectionObs.observe(bar);
+});
+</script>
+</body>
+</html>
