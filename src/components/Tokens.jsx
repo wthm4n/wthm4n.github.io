@@ -1,7 +1,6 @@
 import { useRef, useState, useCallback } from "react";
 
 // ── Token type registry ───────────────────────────────────────────────────────
-// Each token knows its own role — used for accessibility + future tooling
 const TOKEN_TYPES = {
   keyword:  { role: "keyword",   italic: false, bold: true  },
   func:     { role: "function",  italic: false, bold: false },
@@ -15,7 +14,7 @@ const TOKEN_TYPES = {
   fg2:      { role: "emphasis",  italic: false, bold: false },
 };
 
-// ── Token factory — generates all span components ─────────────────────────────
+// ── Token factory ─────────────────────────────────────────────────────────────
 function makeToken(colorKey) {
   const meta = TOKEN_TYPES[colorKey];
   const Component = ({ t, children, title, onClick }) => {
@@ -46,21 +45,26 @@ function makeToken(colorKey) {
   return Component;
 }
 
-export const K = makeToken("keyword");   // keyword
-export const F = makeToken("func");      // function/method
-export const S = makeToken("string");    // string literal
-export const N = makeToken("number");    // number literal
-export const T = makeToken("type");      // type / class
-export const O = makeToken("operator");  // operator
-export const C = makeToken("comment");   // comment
-export const P = makeToken("fg");        // plain foreground
-export const E = makeToken("red");       // error / special
-export const B = makeToken("fg2");       // bold emphasis
+export const K = makeToken("keyword");
+export const F = makeToken("func");
+export const S = makeToken("string");
+export const N = makeToken("number");
+export const T = makeToken("type");
+export const O = makeToken("operator");
+export const C = makeToken("comment");
+export const P = makeToken("fg");
+export const E = makeToken("red");
+export const B = makeToken("fg2");
+
+// ── Space token — explicit whitespace between tokens ─────────────────────────
+// Use <Sp /> between tokens to get a real rendered space.
+// Use <Sp n={2} /> for multiple spaces (rare, prefer indentation via <I />).
+export function Sp({ n = 1 }) {
+  return <span style={{ whiteSpace: "pre" }}>{" ".repeat(n)}</span>;
+}
 
 
 // ── Indent guide ──────────────────────────────────────────────────────────────
-// depth: how many indent levels deep
-// active: whether this scope is "active" (cursor inside it) — dims siblings
 export function I({ depth = 1, active = false }) {
   return Array.from({ length: depth }, (_, i) => (
     <span
@@ -81,7 +85,7 @@ export function I({ depth = 1, active = false }) {
 }
 
 
-// ── Gutter (line numbers + optional decorations) ──────────────────────────────
+// ── Gutter ────────────────────────────────────────────────────────────────────
 export function Gutter({ lineNum, width = 48, breakpoint = false, changed = false, error = false }) {
   return (
     <span
@@ -109,7 +113,6 @@ export function Gutter({ lineNum, width = 48, breakpoint = false, changed = fals
         position: "relative",
       }}
     >
-      {/* Git-change indicator stripe */}
       {changed && (
         <span style={{
           position: "absolute", left: 0, top: "10%", bottom: "10%",
@@ -117,7 +120,6 @@ export function Gutter({ lineNum, width = 48, breakpoint = false, changed = fals
           background: "var(--func)",
         }} />
       )}
-      {/* Error dot */}
       {error && (
         <span style={{
           position: "absolute", left: 4, top: "50%",
@@ -126,7 +128,6 @@ export function Gutter({ lineNum, width = 48, breakpoint = false, changed = fals
           background: "var(--red, #f44)",
         }} />
       )}
-      {/* Breakpoint dot */}
       {breakpoint && (
         <span style={{
           position: "absolute", left: 4, top: "50%",
@@ -143,13 +144,6 @@ export function Gutter({ lineNum, width = 48, breakpoint = false, changed = fals
 
 
 // ── Single code line ──────────────────────────────────────────────────────────
-// Props:
-//   hl          – boolean: is this the "active" highlighted line?
-//   error       – boolean: error squiggle underline treatment
-//   added       – boolean: git diff added (green bg tint)
-//   removed     – boolean: git diff removed (red bg tint)
-//   dimmed      – boolean: opacity reduce (e.g. folded siblings)
-//   onClick     – optional click handler
 export function Line({
   hl = false,
   error = false,
@@ -190,7 +184,8 @@ export function Line({
         cursor: onClick ? "pointer" : "text",
         position: "relative",
         transition: "background 0.08s, opacity 0.15s",
-        // Error wavy underline on the whole line
+        // Wrap children in a pre-style container so raw JSX spaces aren't collapsed
+        whiteSpace: "pre",
         ...(error && {
           textDecoration: "underline wavy",
           textDecorationColor: "var(--red, #f44)",
@@ -198,7 +193,6 @@ export function Line({
         }),
       }}
     >
-      {/* Left edge accent for active line */}
       {hl && (
         <span style={{
           position: "absolute", left: 0, top: 0, bottom: 0,
@@ -212,7 +206,7 @@ export function Line({
 }
 
 
-// ── Inline ghost text (e.g. AI autocomplete suggestion) ──────────────────────
+// ── Ghost text ────────────────────────────────────────────────────────────────
 export function Ghost({ children }) {
   return (
     <span style={{
@@ -228,7 +222,7 @@ export function Ghost({ children }) {
 }
 
 
-// ── Inline diagnostic / tooltip decoration ───────────────────────────────────
+// ── Diagnostic tooltip ────────────────────────────────────────────────────────
 export function Diagnostic({ t, kind = "error", children, message }) {
   const [open, setOpen] = useState(false);
   const colors = {
@@ -281,7 +275,7 @@ export function Diagnostic({ t, kind = "error", children, message }) {
 }
 
 
-// ── Collapsible fold region ───────────────────────────────────────────────────
+// ── Fold region ───────────────────────────────────────────────────────────────
 export function Fold({ t, summary, children, defaultOpen = true }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
@@ -317,7 +311,7 @@ export function Fold({ t, summary, children, defaultOpen = true }) {
 }
 
 
-// ── Search match highlight ────────────────────────────────────────────────────
+// ── Search match ──────────────────────────────────────────────────────────────
 export function Match({ t, active = false, children }) {
   return (
     <span style={{
@@ -331,7 +325,7 @@ export function Match({ t, active = false, children }) {
 }
 
 
-// ── Cursor blink ─────────────────────────────────────────────────────────────
+// ── Cursor blink ──────────────────────────────────────────────────────────────
 export function Cursor({ t }) {
   return (
     <span style={{
