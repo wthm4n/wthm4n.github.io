@@ -1834,7 +1834,7 @@ export function CodeReadme({ t }) {
       name: "HMS",
       desc: "Hospital Management System in Python with MongoDB backend. Patient records, appointments, billing — full CRUD.",
       lang: "Python",
-      url: "https://github.com/wthm4n/hms",
+      url: "https://github.com/wthm4n/hospital-management-system",
       tags: [
         { label: "python", color: t.type },
         { label: "mongodb", color: t.keyword },
