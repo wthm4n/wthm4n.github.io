@@ -1768,6 +1768,50 @@ export function CodeReadme({ t }) {
   };
 
   const projects = [
+    ,
+    {
+      name: "Combat System",
+      desc: "Fluid, responsive combat system for Roblox. Full OOP architecture with hitbox detection, combo chains, and state management. Animations rigged in Moon Animator, VFX and assets crafted in Photoshop.",
+      lang: "Lua",
+      url: "https://github.com/wthm4n/combat-system",
+      tags: [
+        { label: "lua", color: t.keyword },
+        { label: "OOP", color: t.func },
+        { label: "moon animator", color: t.type },
+        { label: "photoshop", color: t.string },
+        { label: "roblox", color: t.number },
+      ],
+      done: true,
+    },
+    {
+      name: "Gu System",
+      desc: "Gu mechanic system built for Roblox — fully OOP. Custom ability logic, cooldown management, and progression hooks. Animations done in Moon Animator with Photoshop-made VFX and assets.",
+      lang: "Lua",
+      url: "https://github.com/wthm4n/gu-system",
+      tags: [
+        { label: "lua", color: t.keyword },
+        { label: "OOP", color: t.func },
+        { label: "moon animator", color: t.type },
+        { label: "photoshop", color: t.string },
+        { label: "roblox", color: t.number },
+      ],
+      done: true,
+    },
+    {
+      name: "Gojo Domain",
+      desc: "Infinity Domain Expansion recreation in Roblox. Full OOP system driving the domain trigger, environment shift, and ability logic. Moon Animator for cinematic animations, Photoshop for all VFX and visual assets.",
+      lang: "Lua",
+      url: "https://github.com/wthm4n/gojo-domain",
+      tags: [
+        { label: "lua", color: t.keyword },
+        { label: "OOP", color: t.func },
+        { label: "moon animator", color: t.type },
+        { label: "photoshop", color: t.string },
+        { label: "roblox", color: t.number },
+        { label: "vfx", color: t.comment },
+      ],
+      done: true,
+    },
     {
       name: "Nyxus",
       desc: "Manager library housing 7+ custom UI libs for Roblox executors and in-game interfaces. Full OOP architecture with a unified base — plug in any lib, same API.",
