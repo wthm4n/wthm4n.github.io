@@ -19,7 +19,7 @@ export default function App() {
   const t = THEMES[themeName]?.vars || THEMES.onedark.vars;
 
   // ── Editor state ──────────────────────────────────────────────────────────
-  const [activeTab,         setActiveTab]         = useState("skills");
+  const [activeTab,         setActiveTab]         = useState("readme");
   const [openTabs,          setOpenTabs]          = useState(new Set(["readme" ,"about", "skills", "work", "contact", "pkg"]));
   const [activity,          setActivity]          = useState("explorer");
   const [sidebarOpen,       setSidebarOpen]       = useState(true);
