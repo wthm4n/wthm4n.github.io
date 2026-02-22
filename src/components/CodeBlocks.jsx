@@ -1772,6 +1772,7 @@ export function CodeReadme({ t }) {
       name: "Nyxus",
       desc: "Manager library housing 7+ custom UI libs for Roblox executors and in-game interfaces. Full OOP architecture with a unified base — plug in any lib, same API.",
       lang: "Lua",
+      url: "https://github.com/wthm4n/nyxus",
       tags: [
         { label: "lua", color: t.keyword },
         { label: "OOP", color: t.func },
@@ -1784,6 +1785,7 @@ export function CodeReadme({ t }) {
       name: "amna-v5",
       desc: "Full-featured Discord bot — moderation, music, fun, social commands. Built fully OOP in JavaScript with persistent datastore and a proper backend.",
       lang: "JavaScript",
+      url: "https://github.com/wthm4n/amna-v5",
       tags: [
         { label: "discord.js", color: t.type },
         { label: "node", color: t.string },
@@ -1796,6 +1798,7 @@ export function CodeReadme({ t }) {
       name: "BillDashboard",
       desc: "Personal GST billing tool. Generates compliant bills via the official Government GST API. Clean HTML/CSS/JS frontend with a lightweight backend.",
       lang: "JS + Python",
+      url: "https://github.com/wthm4n/billdashboard",
       tags: [
         { label: "html/css", color: t.number },
         { label: "govt-api", color: t.type },
@@ -1807,6 +1810,7 @@ export function CodeReadme({ t }) {
       name: "MusicBot",
       desc: "Python Discord music bot with advanced search — play by name, URL, or anything. Queue management, controls, the works.",
       lang: "Python",
+      url: "https://github.com/wthm4n/musicbot",
       tags: [
         { label: "python", color: t.type },
         { label: "discord", color: t.func },
@@ -1818,6 +1822,7 @@ export function CodeReadme({ t }) {
       name: "DBS Mods",
       desc: "Mods for an open-source Discord bot framework — extended it to make bot creation even simpler. Shipped in both JS and TS.",
       lang: "JS / TS",
+      url: "https://github.com/wthm4n/dbs-mods",
       tags: [
         { label: "typescript", color: t.type },
         { label: "open-source", color: t.string },
@@ -1829,6 +1834,7 @@ export function CodeReadme({ t }) {
       name: "HMS",
       desc: "Hospital Management System in Python with MongoDB backend. Patient records, appointments, billing — full CRUD.",
       lang: "Python",
+      url: "https://github.com/wthm4n/hms",
       tags: [
         { label: "python", color: t.type },
         { label: "mongodb", color: t.keyword },
@@ -1898,11 +1904,11 @@ export function CodeReadme({ t }) {
 
       {/* ── Projects ────────────────────────────────────────────────────────── */}
       <h2 style={styles.h2}>📦 Projects</h2>
-      {projects.map(({ name, desc, lang, tags, done }) => (
+      {projects.map(({ name, desc, lang, tags, done, url }) => (
         <div
           key={name}
           style={styles.card}
-          onClick={() => link(`https://github.com/wthm4n`)}
+          onClick={() => link(url)}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = `${t.func}40`;
             e.currentTarget.style.background = `${t.func}08`;
@@ -1929,7 +1935,7 @@ export function CodeReadme({ t }) {
               title={done ? "shipped" : "wip"}
             />
           </div>
-          <div style={styles.cardMeta}>{lang} · github.com/wthm4n</div>
+          <div style={styles.cardMeta}>{lang} · {url.replace("https://", "")}</div>
         </div>
       ))}
 
