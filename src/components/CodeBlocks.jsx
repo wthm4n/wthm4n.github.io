@@ -1768,32 +1768,29 @@ export function CodeReadme({ t }) {
   };
 
   const projects = [
-    
-    {
+ {
       name: "Combat System",
       desc: "Fluid, responsive combat system for Roblox. Full OOP architecture with hitbox detection, combo chains, and state management. Animations rigged in Moon Animator, VFX and assets crafted in Photoshop.",
       lang: "Lua",
       url: "https://github.com/wthm4n/Roblox-Studio/tree/main/combat-system",
       tags: [
-        { label: "lua", color: t.keyword },
-        { label: "OOP", color: t.func },
-        { label: "moon animator", color: t.type },
-        { label: "photoshop", color: t.string },
-        { label: "roblox", color: t.number },
+        { label: "hitbox detection", color: t.keyword },
+        { label: "combo chains", color: t.func },
+        { label: "state machine", color: t.type },
+        { label: "moon animator", color: t.string },
       ],
       done: true,
     },
     {
       name: "Gun System",
-      desc: "Gun mechanic system built for Roblox — fully OOP. Custom ability logic, cooldown management, and progression hooks. Animations done in Moon Animator with Photoshop-made VFX and assets.",
+      desc: "Gun mechanic system built for Roblox — fully OOP. Custom weapon logic, cooldown management, and recoil. Animations done in Moon Animator with Photoshop-made VFX and assets.",
       lang: "Lua",
       url: "https://github.com/wthm4n/Roblox-Studio/tree/main/gun-system",
       tags: [
-        { label: "lua", color: t.keyword },
-        { label: "OOP", color: t.func },
-        { label: "moon animator", color: t.type },
-        { label: "photoshop", color: t.string },
-        { label: "roblox", color: t.number },
+        { label: "raycasting", color: t.keyword },
+        { label: "recoil", color: t.number },
+        { label: "ammo system", color: t.func },
+        { label: "photoshop vfx", color: t.string },
       ],
       done: true,
     },
@@ -1803,12 +1800,10 @@ export function CodeReadme({ t }) {
       lang: "Lua",
       url: "https://github.com/wthm4n/Roblox-Studio/tree/main/gojo-domain",
       tags: [
-        { label: "lua", color: t.keyword },
-        { label: "OOP", color: t.func },
-        { label: "moon animator", color: t.type },
-        { label: "photoshop", color: t.string },
-        { label: "roblox", color: t.number },
-        { label: "vfx", color: t.comment },
+        { label: "env overhaul", color: t.type },
+        { label: "ability trigger", color: t.keyword },
+        { label: "cinematic anim", color: t.func },
+        { label: "custom vfx", color: t.string },
       ],
       done: true,
     },
