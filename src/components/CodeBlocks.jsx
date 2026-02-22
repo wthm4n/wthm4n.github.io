@@ -1801,7 +1801,7 @@ export function CodeReadme({ t }) {
       name: "Gojo Domain",
       desc: "Infinity Domain Expansion recreation in Roblox. Full OOP system driving the domain trigger, environment shift, and ability logic. Moon Animator for cinematic animations, Photoshop for all VFX and visual assets.",
       lang: "Lua",
-      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/combat-system",
+      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/",
       tags: [
         { label: "lua", color: t.keyword },
         { label: "OOP", color: t.func },
