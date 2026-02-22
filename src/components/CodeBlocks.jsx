@@ -1822,7 +1822,7 @@ export function CodeReadme({ t }) {
       name: "DBS Mods",
       desc: "Mods for an open-source Discord bot framework — extended it to make bot creation even simpler. Shipped in both JS and TS.",
       lang: "JS / TS",
-      url: "https://github.com/wthm4n/dbs-mods",
+      url: "https://github.com/wthm4n/d",
       tags: [
         { label: "typescript", color: t.type },
         { label: "open-source", color: t.string },
