@@ -1768,7 +1768,7 @@ export function CodeReadme({ t }) {
   };
 
   const projects = [
-    ,
+    
     {
       name: "Combat System",
       desc: "Fluid, responsive combat system for Roblox. Full OOP architecture with hitbox detection, combo chains, and state management. Animations rigged in Moon Animator, VFX and assets crafted in Photoshop.",
