@@ -1810,7 +1810,7 @@ export function CodeReadme({ t }) {
       name: "MusicBot",
       desc: "Python Discord music bot with advanced search — play by name, URL, or anything. Queue management, controls, the works.",
       lang: "Python",
-      url: "https://github.com/wthm4n/musicbot",
+      url: "https://github.com/wthm4n/MusicBot",
       tags: [
         { label: "python", color: t.type },
         { label: "discord", color: t.func },
