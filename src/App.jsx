@@ -19,8 +19,8 @@ export default function App() {
   const t = THEMES[themeName]?.vars || THEMES.onedark.vars;
 
   // ── Editor state ──────────────────────────────────────────────────────────
-  const [activeTab,         setActiveTab]         = useState("about");
-  const [openTabs,          setOpenTabs]          = useState(new Set(["about", "skills", "work", "contact", "pkg"]));
+  const [activeTab,         setActiveTab]         = useState("skills");
+  const [openTabs,          setOpenTabs]          = useState(new Set(["readme" ,"about", "skills", "work", "contact", "pkg"]));
   const [activity,          setActivity]          = useState("explorer");
   const [sidebarOpen,       setSidebarOpen]       = useState(true);
   const [rightPanelOpen,    setRightPanelOpen]    = useState(true);
@@ -151,7 +151,7 @@ export default function App() {
   // ── Command list ──────────────────────────────────────────────────────────
   const CMDS = [
     { label: "about.lua",     detail: "Open file", key: "Ctrl+1", action: () => switchTab("about")   },
-    { label: "skills.ts",     detail: "Open file", key: "Ctrl+2", action: () => switchTab("skills")  },
+    { label: "skills.lua",     detail: "Open file", key: "Ctrl+2", action: () => switchTab("skills")  },
     { label: "projects.lua",  detail: "Open file", key: "Ctrl+3", action: () => switchTab("work")    },
     { label: "contact.lua",   detail: "Open file", key: "Ctrl+4", action: () => switchTab("contact") },
     { label: "package.json",  detail: "Open file", key: "Ctrl+5", action: () => switchTab("pkg")     },
