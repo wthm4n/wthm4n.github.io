@@ -1773,7 +1773,7 @@ export function CodeReadme({ t }) {
       name: "Combat System",
       desc: "Fluid, responsive combat system for Roblox. Full OOP architecture with hitbox detection, combo chains, and state management. Animations rigged in Moon Animator, VFX and assets crafted in Photoshop.",
       lang: "Lua",
-      url: "https://github.com/wthm4n/combat-system",
+      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/combat-system",
       tags: [
         { label: "lua", color: t.keyword },
         { label: "OOP", color: t.func },
