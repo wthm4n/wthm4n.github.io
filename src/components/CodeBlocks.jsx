@@ -1772,7 +1772,7 @@ export function CodeReadme({ t }) {
       name: "Nyxus",
       desc: "Manager library housing 7+ custom UI libs for Roblox executors and in-game interfaces. Full OOP architecture with a unified base — plug in any lib, same API.",
       lang: "Lua",
-      url: "https://github.com/wthm4n/nyxus",
+      url: "https://github.com/wthm4n/Nyxus",
       tags: [
         { label: "lua", color: t.keyword },
         { label: "OOP", color: t.func },
