@@ -1798,7 +1798,7 @@ export function CodeReadme({ t }) {
       name: "BillDashboard",
       desc: "Personal GST billing tool. Generates compliant bills via the official Government GST API. Clean HTML/CSS/JS frontend with a lightweight backend.",
       lang: "JS + Python",
-      url: "https://github.com/wthm4n/billdashboard",
+      url: "https://github.com/wthm4n/BillDashboard",
       tags: [
         { label: "html/css", color: t.number },
         { label: "govt-api", color: t.type },
