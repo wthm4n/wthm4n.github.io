@@ -1787,7 +1787,7 @@ export function CodeReadme({ t }) {
       name: "Gu System",
       desc: "Gu mechanic system built for Roblox — fully OOP. Custom ability logic, cooldown management, and progression hooks. Animations done in Moon Animator with Photoshop-made VFX and assets.",
       lang: "Lua",
-      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/combat-system",
+      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/gun-system",
       tags: [
         { label: "lua", color: t.keyword },
         { label: "OOP", color: t.func },
