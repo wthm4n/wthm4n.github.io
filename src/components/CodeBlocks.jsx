@@ -270,7 +270,9 @@ export function CodeSkills({ t }) {
 
       {/* ── AI / Python stack — the Samita stack ── */}
       <Line t={t} hl>
-        <C t={t}>{"-- ─── AI / Python  (the Samita stack) ─────────────────"}</C>
+        <C t={t}>
+          {"-- ─── AI / Python  (the Samita stack) ─────────────────"}
+        </C>
       </Line>
       <Line t={t}>
         <K t={t}>const</K>
@@ -319,7 +321,9 @@ export function CodeSkills({ t }) {
 
       {/* ── Game Dev / Lua ── */}
       <Line t={t} hl>
-        <C t={t}>{"-- ─── Game Dev / Lua ───────────────────────────────────"}</C>
+        <C t={t}>
+          {"-- ─── Game Dev / Lua ───────────────────────────────────"}
+        </C>
       </Line>
       <Line t={t}>
         <K t={t}>const</K>
@@ -365,7 +369,9 @@ export function CodeSkills({ t }) {
 
       {/* ── Web / Fullstack ── */}
       <Line t={t} hl>
-        <C t={t}>{"-- ─── Web / Fullstack ──────────────────────────────────"}</C>
+        <C t={t}>
+          {"-- ─── Web / Fullstack ──────────────────────────────────"}
+        </C>
       </Line>
       <Line t={t}>
         <K t={t}>const</K>
@@ -497,15 +503,18 @@ export function CodeWork({ t }) {
         <S t={t}>[[</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>Not a chatbot. A local AI assistant built to feel</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>like a real companion — one that remembers you,</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>recognizes your voice, and gets smarter over time.</S>
       </Line>
       <Line t={t}>
@@ -526,16 +535,17 @@ export function CodeWork({ t }) {
         <C t={t}>-- 7 subsystems, all wired together</C>
       </Line>
       {[
-        ["agent",  "planner + tool execution + sandbox"],
+        ["agent", "planner + tool execution + sandbox"],
         ["memory", "SQLite + ChromaDB · 4 memory layers"],
-        ["voice",  "Whisper STT + Resemblyzer speaker verify"],
-        ["brain",  "Ollama (Qwen 2.5 Coder) + personality layer"],
+        ["voice", "Whisper STT + Resemblyzer speaker verify"],
+        ["brain", "Ollama (Qwen 2.5 Coder) + personality layer"],
         ["search", "DuckDuckGo web search integration"],
         ["scheduler", "APScheduler · reminders + timed tasks"],
-        ["ui",     "Textual TUI · full terminal interface"],
+        ["ui", "Textual TUI · full terminal interface"],
       ].map(([key, val]) => (
         <Line t={t} key={key}>
-          <I /><I />
+          <I />
+          <I />
           <F t={t}>{key}</F>
           <P t={t}>:</P>
           <Sp />
@@ -562,12 +572,13 @@ export function CodeWork({ t }) {
       </Line>
       {[
         ["conversations", "full message history in SQLite"],
-        ["facts",         "user facts extracted and stored"],
-        ["events",        "timestamped events + reminders"],
-        ["semantic",      "ChromaDB vector embeddings for recall"],
+        ["facts", "user facts extracted and stored"],
+        ["events", "timestamped events + reminders"],
+        ["semantic", "ChromaDB vector embeddings for recall"],
       ].map(([key, val]) => (
         <Line t={t} key={key}>
-          <I /><I />
+          <I />
+          <I />
           <F t={t}>{key}</F>
           <P t={t}>:</P>
           <Sp />
@@ -601,7 +612,8 @@ export function CodeWork({ t }) {
         "agent_task",
       ].map((r) => (
         <Line t={t} key={r}>
-          <I /><I />
+          <I />
+          <I />
           <S t={t}>{`"${r}"`}</S>
           <P t={t}>,</P>
         </Line>
@@ -622,16 +634,17 @@ export function CodeWork({ t }) {
         <P t={t}>{"{"}</P>
       </Line>
       {[
-        ["language",  "Python"],
-        ["llm",       "Ollama · Qwen 2.5 Coder"],
-        ["memory",    "SQLite + ChromaDB"],
-        ["voice",     "Whisper + Resemblyzer"],
+        ["language", "Python"],
+        ["llm", "Ollama · Qwen 2.5 Coder"],
+        ["memory", "SQLite + ChromaDB"],
+        ["voice", "Whisper + Resemblyzer"],
         ["scheduler", "APScheduler"],
         ["interface", "Textual TUI"],
-        ["search",    "DuckDuckGo API"],
+        ["search", "DuckDuckGo API"],
       ].map(([key, val]) => (
         <Line t={t} key={key}>
-          <I /><I />
+          <I />
+          <I />
           <F t={t}>{key}</F>
           <P t={t}>:</P>
           <Sp />
@@ -712,15 +725,18 @@ export function CodeWork({ t }) {
         <S t={t}>[[</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>Online judge platform. Submit code, get a verdict.</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>React frontend, Node API, isolated Docker worker,</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>RabbitMQ queue, Python judge. Full pipeline.</S>
       </Line>
       <Line t={t}>
@@ -796,15 +812,18 @@ export function CodeWork({ t }) {
         <S t={t}>[[</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>Full-featured Discord bot — V5 of an evolving system.</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>Moderation, music, fun, social commands, leveling,</S>
       </Line>
       <Line t={t}>
-        <I /><I />
+        <I />
+        <I />
         <S t={t}>OOP architecture, persistent MongoDB datastore.</S>
       </Line>
       <Line t={t}>
@@ -858,10 +877,7 @@ export function CodeWork({ t }) {
         <F
           t={t}
           onClick={() =>
-            window.open(
-              "https://github.com/wthm4n/Roblox-Studio",
-              "_blank"
-            )
+            window.open("https://github.com/wthm4n/Roblox-Studio", "_blank")
           }
         >
           RobloxSystems
@@ -881,13 +897,23 @@ export function CodeWork({ t }) {
       </Line>
       {[
         ["CombatSystem", "state machine · hitbox · combo chains · knockback"],
-        ["GunSystem",    "raycasting · lag compensation · per-gun recoil curves"],
-        ["GojoDomain",   "cinematic domain expansion · env overhaul · ability trigger"],
-        ["NPCAISystem",  "personality-based NPC AI · pathfinding · squad behavior"],
-        ["AIDirector",   "dynamic difficulty scaling · pacing manager · stress calc"],
+        ["GunSystem", "raycasting · lag compensation · per-gun recoil curves"],
+        [
+          "GojoDomain",
+          "cinematic domain expansion · env overhaul · ability trigger",
+        ],
+        [
+          "NPCAISystem",
+          "personality-based NPC AI · pathfinding · squad behavior",
+        ],
+        [
+          "AIDirector",
+          "dynamic difficulty scaling · pacing manager · stress calc",
+        ],
       ].map(([name, desc]) => (
         <Line t={t} key={name}>
-          <I /><I />
+          <I />
+          <I />
           <F t={t}>{name}</F>
           <P t={t}>:</P>
           <Sp />
@@ -1294,12 +1320,12 @@ export function CodePkg({ t }) {
         <C t={t}>// ships with every build</C>
       </Line>
       {[
-        ["python",     "*",       "primary — Samita, AI systems"],
-        ["lua",        "*",       "roblox, executors, game systems"],
-        ["javascript", "*",       "bots, web, tooling"],
-        ["typescript", "^5.0.0",  ""],
-        ["html",       "*",       ""],
-        ["css",        "*",       ""],
+        ["python", "*", "primary — Samita, AI systems"],
+        ["lua", "*", "roblox, executors, game systems"],
+        ["javascript", "*", "bots, web, tooling"],
+        ["typescript", "^5.0.0", ""],
+        ["html", "*", ""],
+        ["css", "*", ""],
       ].map(([name, ver, note]) => (
         <Line t={t} key={name}>
           <I depth={2} t={t} />
@@ -1335,13 +1361,13 @@ export function CodePkg({ t }) {
         <C t={t}>// plug me into your stack</C>
       </Line>
       {[
-        ["ollama",       "*"],
-        ["chromadb",     "*"],
-        ["react",        "^18.0.0"],
-        ["node",         "^18"],
-        ["discord.js",   "^14.0.0"],
-        ["mongodb",      "*"],
-        ["python",       "^3.12"],
+        ["ollama", "*"],
+        ["chromadb", "*"],
+        ["react", "^18.0.0"],
+        ["node", "^18"],
+        ["discord.js", "^14.0.0"],
+        ["mongodb", "*"],
+        ["python", "^3.12"],
       ].map(([name, ver]) => (
         <Line t={t} key={name}>
           <I depth={2} t={t} />
@@ -1660,8 +1686,18 @@ export function CodeReadme({ t }) {
       cursor: "pointer",
       transition: "opacity 0.15s",
     },
-    contactIcon: { fontSize: 14, flexShrink: 0, width: 20, textAlign: "center" },
-    contactLabel: { fontSize: 11.5, color: t.comment, width: 60, flexShrink: 0 },
+    contactIcon: {
+      fontSize: 14,
+      flexShrink: 0,
+      width: 20,
+      textAlign: "center",
+    },
+    contactLabel: {
+      fontSize: 11.5,
+      color: t.comment,
+      width: 60,
+      flexShrink: 0,
+    },
     contactValue: {
       color: t.func,
       fontFamily: "monospace",
@@ -1774,7 +1810,9 @@ export function CodeReadme({ t }) {
           ✅ open to work
         </span>
         <span style={styles.badge(`${t.func}22`, t.func)}>🤖 AI engineer</span>
-        <span style={styles.badge(`${t.keyword}22`, t.keyword)}>🎮 game dev</span>
+        <span style={styles.badge(`${t.keyword}22`, t.keyword)}>
+          🎮 game dev
+        </span>
         <span style={styles.badge(`${t.type}22`, t.type)}>🌐 fullstack</span>
         <span style={styles.badge(`${t.number}22`, t.number)}>
           🎓 B.Tech CSE AI/ML
@@ -1789,9 +1827,9 @@ export function CodeReadme({ t }) {
       <h2 style={styles.h2}>⚡ What I build</h2>
       <p style={styles.p}>
         Currently deep in AI engineering — building Samita, a local AI assistant
-        with persistent memory, voice interaction, and autonomous task execution.
-        Also: game systems, Discord bots, fullstack web tools. Self-taught,
-        commission-funded, doing a B.Tech I mostly use as wifi.
+        with persistent memory, voice interaction, and autonomous task
+        execution. Also: game systems, Discord bots, fullstack web tools.
+        Self-taught, commission-funded, doing a B.Tech I mostly use as wifi.
       </p>
 
       <hr style={styles.hr} />
@@ -1820,8 +1858,8 @@ export function CodeReadme({ t }) {
           A personality-driven AI assistant designed to feel less like a chatbot
           and more like a real companion. Built around a local LLM with
           persistent memory, semantic recall, voice interaction, autonomous task
-          execution, and intelligent request routing — fully self-hosted,
-          runs locally via Ollama.
+          execution, and intelligent request routing — fully self-hosted, runs
+          locally via Ollama.
         </p>
 
         <div style={styles.subsystemGrid}>
@@ -1832,7 +1870,9 @@ export function CodeReadme({ t }) {
           ))}
         </div>
 
-        <div style={{ fontSize: 11, color: t.comment, fontFamily: "monospace" }}>
+        <div
+          style={{ fontSize: 11, color: t.comment, fontFamily: "monospace" }}
+        >
           Python · Ollama · SQLite + ChromaDB · Whisper · Resemblyzer ·
           APScheduler · Textual TUI ·{" "}
           <span
