@@ -7,7 +7,7 @@ import { K, F, S, N, T, O, C, P, I, Line, Sp } from "./Tokens";
 export function CodeAbout({ t }) {
   return (
     <>
-      {/* ── File header ────────────────────────────────────────────────────── */}
+      {/* ── File header ─────────────────────────────────────────────────── */}
       <Line t={t}>
         <C t={t}>-- about.lua · the person behind the code</C>
       </Line>
@@ -17,7 +17,7 @@ export function CodeAbout({ t }) {
 
       <Line t={t} />
 
-      {/* ── Module declaration ─────────────────────────────────────────────── */}
+      {/* ── Module declaration ──────────────────────────────────────────── */}
       <Line t={t}>
         <K t={t}>local</K>
         <Sp />
@@ -30,7 +30,7 @@ export function CodeAbout({ t }) {
 
       <Line t={t} />
 
-      {/* ── Identity — aligned = signs ─────────────────────────────────────── */}
+      {/* ── Identity — aligned = signs ──────────────────────────────────── */}
       <Line t={t} hl>
         <T t={t}>Aman</T>
         <P t={t}>.</P>
@@ -74,12 +74,12 @@ export function CodeAbout({ t }) {
         <Sp />
         <O t={t}>=</O>
         <Sp />
-        <S t={t}>"shipping code instead of attending lectures"</S>
+        <S t={t}>"building Samita instead of attending lectures"</S>
       </Line>
 
       <Line t={t} />
 
-      {/* ── Origin story as long string ────────────────────────────────────── */}
+      {/* ── Origin story as long string ─────────────────────────────────── */}
       <Line t={t}>
         <T t={t}>Aman</T>
         <P t={t}>.</P>
@@ -103,15 +103,15 @@ export function CodeAbout({ t }) {
       </Line>
       <Line t={t}>
         <I depth={1} t={t} />
-        <S t={t}>started building for fun. now it pays rent.</S>
+        <S t={t}>started building for fun. now building Samita.</S>
       </Line>
       <Line t={t}>
         <I depth={1} t={t} />
-        <S t={t}>the dream is a banger game with a real team.</S>
+        <S t={t}>the dream is a real AI that actually knows you.</S>
       </Line>
       <Line t={t}>
         <I depth={1} t={t} />
-        <S t={t}>currently: still looking for that team.</S>
+        <S t={t}>currently: getting there.</S>
       </Line>
       <Line t={t}>
         <S t={t}>{`]]`}</S>
@@ -119,7 +119,7 @@ export function CodeAbout({ t }) {
 
       <Line t={t} />
 
-      {/* ── Personality ────────────────────────────────────────────────────── */}
+      {/* ── Personality ─────────────────────────────────────────────────── */}
       <Line t={t}>
         <T t={t}>Aman</T>
         <P t={t}>.</P>
@@ -151,6 +151,15 @@ export function CodeAbout({ t }) {
       <Line t={t}>
         <T t={t}>Aman</T>
         <P t={t}>.</P>
+        <F t={t}>currently_building</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <S t={t}>"Samita — local AI with memory + voice + personality"</S>
+      </Line>
+      <Line t={t}>
+        <T t={t}>Aman</T>
+        <P t={t}>.</P>
         <F t={t}>seeking</F>
         <Sp n={6} />
         <O t={t}>=</O>
@@ -160,7 +169,7 @@ export function CodeAbout({ t }) {
 
       <Line t={t} />
 
-      {/* ── GetQuote function ──────────────────────────────────────────────── */}
+      {/* ── GetQuote function ────────────────────────────────────────────── */}
       <Line t={t}>
         <K t={t}>function</K>
         <Sp />
@@ -185,7 +194,7 @@ export function CodeAbout({ t }) {
 
       <Line t={t} />
 
-      {/* ── Module export ──────────────────────────────────────────────────── */}
+      {/* ── Module export ───────────────────────────────────────────────── */}
       <Line t={t}>
         <K t={t}>return</K>
         <Sp />
@@ -201,11 +210,11 @@ export function CodeSkills({ t }) {
     <>
       {/* File header */}
       <Line t={t}>
-        <C t={t}>// skills.lua — full stack breakdown</C>
+        <C t={t}>-- skills.lua · what I reach for when building</C>
       </Line>
       <Line t={t} />
 
-      {/* Type alias */}
+      {/* Type alias — no percentages, no fake numbers */}
       <Line t={t}>
         <K t={t}>type</K>
         <Sp />
@@ -213,15 +222,15 @@ export function CodeSkills({ t }) {
         <Sp />
         <O t={t}>=</O>
         <Sp />
-        <S t={t}>"expert"</S>
+        <S t={t}>"daily"</S>
         <Sp />
         <O t={t}>|</O>
         <Sp />
-        <S t={t}>"strong"</S>
+        <S t={t}>"frequent"</S>
         <Sp />
         <O t={t}>|</O>
         <Sp />
-        <S t={t}>"growing"</S>
+        <S t={t}>"occasional"</S>
         <Sp />
         <O t={t}>|</O>
         <Sp />
@@ -248,18 +257,10 @@ export function CodeSkills({ t }) {
       </Line>
       <Line t={t}>
         <I />
-        <F t={t}>level</F>
+        <F t={t}>use</F>
         <P t={t}>:</P>
         <Sp />
         <T t={t}>Level</T>
-        <P t={t}>;</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <T t={t}>number</T>
         <P t={t}>;</P>
       </Line>
       <Line t={t}>
@@ -267,8 +268,60 @@ export function CodeSkills({ t }) {
       </Line>
       <Line t={t} />
 
-      {/* gameDevSkills array */}
+      {/* ── AI / Python stack — the Samita stack ── */}
       <Line t={t} hl>
+        <C t={t}>{"-- ─── AI / Python  (the Samita stack) ─────────────────"}</C>
+      </Line>
+      <Line t={t}>
+        <K t={t}>const</K>
+        <Sp />
+        <F t={t}>aiStack</F>
+        <P t={t}>:</P>
+        <Sp />
+        <T t={t}>Skill</T>
+        <P t={t}>[]</P>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <P t={t}>[</P>
+      </Line>
+      {[
+        ["Python", "daily"],
+        ["Ollama / Local LLMs", "daily"],
+        ["ChromaDB / Vector Search", "frequent"],
+        ["Whisper (Speech-to-Text)", "frequent"],
+        ["APScheduler", "frequent"],
+        ["SQLite", "daily"],
+        ["Resemblyzer (Speaker Verify)", "frequent"],
+        ["Textual TUI", "frequent"],
+      ].map(([name, use]) => (
+        <Line t={t} key={name}>
+          <I />
+          <P t={t}>{"{ "}</P>
+          <F t={t}>name</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${name}"`}</S>
+          <P t={t}>,</P>
+          <Sp />
+          <F t={t}>use</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${use}"`}</S>
+          <Sp />
+          <P t={t}>{"},"}</P>
+        </Line>
+      ))}
+      <Line t={t}>
+        <P t={t}>];</P>
+      </Line>
+      <Line t={t} />
+
+      {/* ── Game Dev / Lua ── */}
+      <Line t={t} hl>
+        <C t={t}>{"-- ─── Game Dev / Lua ───────────────────────────────────"}</C>
+      </Line>
+      <Line t={t}>
         <K t={t}>const</K>
         <Sp />
         <F t={t}>gameDevSkills</F>
@@ -281,97 +334,40 @@ export function CodeSkills({ t }) {
         <Sp />
         <P t={t}>[</P>
       </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"Luau / Roblox Studio"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"expert"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>90</N>
-        <P t={t}>{" },"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"Systems Architecture"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"strong"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>82</N>
-        <P t={t}>{" },"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"Networking / Remotes"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"strong"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>78</N>
-        <P t={t}>{" },"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"Advanced Lua"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"learning"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>48</N>
-        <P t={t}>{" },"}</P>
-      </Line>
+      {[
+        ["Luau / Roblox Studio", "daily"],
+        ["Game System Design", "daily"],
+        ["Networking / RemoteEvents", "frequent"],
+        ["OOP Architecture", "daily"],
+        ["Moon Animator + VFX", "frequent"],
+      ].map(([name, use]) => (
+        <Line t={t} key={name}>
+          <I />
+          <P t={t}>{"{ "}</P>
+          <F t={t}>name</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${name}"`}</S>
+          <P t={t}>,</P>
+          <Sp />
+          <F t={t}>use</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${use}"`}</S>
+          <Sp />
+          <P t={t}>{"},"}</P>
+        </Line>
+      ))}
       <Line t={t}>
         <P t={t}>];</P>
       </Line>
       <Line t={t} />
 
-      {/* webSkills array */}
+      {/* ── Web / Fullstack ── */}
       <Line t={t} hl>
+        <C t={t}>{"-- ─── Web / Fullstack ──────────────────────────────────"}</C>
+      </Line>
+      <Line t={t}>
         <K t={t}>const</K>
         <Sp />
         <F t={t}>webSkills</F>
@@ -384,111 +380,31 @@ export function CodeSkills({ t }) {
         <Sp />
         <P t={t}>[</P>
       </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"HTML / CSS / JS"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"strong"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>86</N>
-        <P t={t}>{" },"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"TypeScript"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"strong"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>76</N>
-        <P t={t}>{" },"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"Python"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"growing"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>70</N>
-        <P t={t}>{" },"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"React / React Native"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"growing"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>68</N>
-        <P t={t}>{" },"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"{ "}</P>
-        <F t={t}>name</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"C"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>level</F>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"growing"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <F t={t}>score</F>
-        <P t={t}>:</P>
-        <Sp />
-        <N t={t}>61</N>
-        <P t={t}>{" },"}</P>
-      </Line>
+      {[
+        ["TypeScript / JavaScript", "daily"],
+        ["React / Vite", "frequent"],
+        ["HTML / CSS", "daily"],
+        ["Node.js / Express", "frequent"],
+        ["MongoDB", "frequent"],
+        ["C", "occasional"],
+      ].map(([name, use]) => (
+        <Line t={t} key={name}>
+          <I />
+          <P t={t}>{"{ "}</P>
+          <F t={t}>name</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${name}"`}</S>
+          <P t={t}>,</P>
+          <Sp />
+          <F t={t}>use</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${use}"`}</S>
+          <Sp />
+          <P t={t}>{"},"}</P>
+        </Line>
+      ))}
       <Line t={t}>
         <P t={t}>];</P>
       </Line>
@@ -499,6 +415,9 @@ export function CodeSkills({ t }) {
         <K t={t}>export default</K>
         <Sp />
         <P t={t}>{"{ "}</P>
+        <F t={t}>aiStack</F>
+        <P t={t}>,</P>
+        <Sp />
         <F t={t}>gameDevSkills</F>
         <P t={t}>,</P>
         <Sp />
@@ -510,15 +429,16 @@ export function CodeSkills({ t }) {
 }
 
 // ── projects.lua ──────────────────────────────────────────────────────────────
+// Angle: Samita dominates. Everything else supports.
 export function CodeWork({ t }) {
   return (
     <>
       {/* File header */}
       <Line t={t}>
-        <C t={t}>-- projects.lua — what I've shipped</C>
+        <C t={t}>-- projects.lua — what I've built</C>
       </Line>
       <Line t={t}>
-        <C t={t}>-- Platform: Roblox Studio + Web</C>
+        <C t={t}>-- flagship first. always.</C>
       </Line>
       <Line t={t} />
 
@@ -534,120 +454,207 @@ export function CodeWork({ t }) {
       </Line>
       <Line t={t} />
 
-      {/* ── GUN SYSTEM ── */}
+      {/* ═══════════════════════════════════════════════════════════════════
+          SAMITA — flagship block, extra large
+          ═══════════════════════════════════════════════════════════════════ */}
       <Line t={t}>
-        <C t={t}>{"--[[ ─────────────────────────────────────"}</C>
+        <C t={t}>{"--[[═══════════════════════════════════════════════════"}</C>
       </Line>
       <Line t={t} hl>
-        <C t={t}>{"     GUN SYSTEM  ·  SYS_001  ·  complete"}</C>
+        <C t={t}>{"      ⭐  SAMITA AI  ·  FLAGSHIP  ·  active           "}</C>
       </Line>
       <Line t={t}>
-        <C t={t}>{"──────────────────────────────────────]]"}</C>
+        <C t={t}>{"       Personality-driven local AI assistant           "}</C>
+      </Line>
+      <Line t={t}>
+        <C t={t}>{"═══════════════════════════════════════════════════]]  "}</C>
       </Line>
       <Line t={t}>
         <T t={t}>Projects</T>
         <P t={t}>.</P>
         <F
           t={t}
-          onClick={() => window.open("https://github.com/aman", "_blank")}
+          onClick={() =>
+            window.open("https://github.com/wthm4n/samita", "_blank")
+          }
+          title="View Samita on GitHub"
         >
-          GunSystem
+          Samita
         </F>
         <Sp />
         <O t={t}>=</O>
         <Sp />
         <P t={t}>{"{"}</P>
       </Line>
+
+      {/* tagline */}
       <Line t={t}>
         <I />
-        <F t={t}>description</F>
+        <F t={t}>tagline</F>
         <Sp />
         <O t={t}>=</O>
         <Sp />
         <S t={t}>[[</S>
       </Line>
       <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>Modular server-validated gun framework.</S>
+        <I /><I />
+        <S t={t}>Not a chatbot. A local AI assistant built to feel</S>
       </Line>
       <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>Raycasting, recoil sim, ADS + hipfire,</S>
+        <I /><I />
+        <S t={t}>like a real companion — one that remembers you,</S>
       </Line>
       <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>custom hit detection, fully networked.</S>
+        <I /><I />
+        <S t={t}>recognizes your voice, and gets smarter over time.</S>
       </Line>
       <Line t={t}>
         <I />
         <S t={t}>]]</S>
         <P t={t}>,</P>
       </Line>
+
+      {/* architecture */}
       <Line t={t}>
         <I />
-        <F t={t}>features</F>
+        <F t={t}>architecture</F>
         <Sp />
         <O t={t}>=</O>
         <Sp />
         <P t={t}>{"{"}</P>
+        <Sp />
+        <C t={t}>-- 7 subsystems, all wired together</C>
       </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"Raycast + lag compensation"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"Server-authoritative damage"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"Per-gun recoil curves"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"ADS / hipfire spread"</S>
-        <P t={t}>,</P>
-      </Line>
+      {[
+        ["agent",  "planner + tool execution + sandbox"],
+        ["memory", "SQLite + ChromaDB · 4 memory layers"],
+        ["voice",  "Whisper STT + Resemblyzer speaker verify"],
+        ["brain",  "Ollama (Qwen 2.5 Coder) + personality layer"],
+        ["search", "DuckDuckGo web search integration"],
+        ["scheduler", "APScheduler · reminders + timed tasks"],
+        ["ui",     "Textual TUI · full terminal interface"],
+      ].map(([key, val]) => (
+        <Line t={t} key={key}>
+          <I /><I />
+          <F t={t}>{key}</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${val}"`}</S>
+          <P t={t}>,</P>
+        </Line>
+      ))}
       <Line t={t}>
         <I />
         <P t={t}>{"}"}</P>
         <P t={t}>,</P>
       </Line>
+
+      {/* memory layers */}
+      <Line t={t}>
+        <I />
+        <F t={t}>memoryLayers</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <P t={t}>{"{"}</P>
+        <Sp />
+        <C t={t}>-- how Samita remembers</C>
+      </Line>
+      {[
+        ["conversations", "full message history in SQLite"],
+        ["facts",         "user facts extracted and stored"],
+        ["events",        "timestamped events + reminders"],
+        ["semantic",      "ChromaDB vector embeddings for recall"],
+      ].map(([key, val]) => (
+        <Line t={t} key={key}>
+          <I /><I />
+          <F t={t}>{key}</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${val}"`}</S>
+          <P t={t}>,</P>
+        </Line>
+      ))}
+      <Line t={t}>
+        <I />
+        <P t={t}>{"}"}</P>
+        <P t={t}>,</P>
+      </Line>
+
+      {/* request routing */}
+      <Line t={t}>
+        <I />
+        <F t={t}>routing</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <P t={t}>{"{"}</P>
+        <Sp />
+        <C t={t}>-- auto-classifies every request</C>
+      </Line>
+      {[
+        "chat",
+        "memory_recall",
+        "fact_storage",
+        "reminder",
+        "web_search",
+        "agent_task",
+      ].map((r) => (
+        <Line t={t} key={r}>
+          <I /><I />
+          <S t={t}>{`"${r}"`}</S>
+          <P t={t}>,</P>
+        </Line>
+      ))}
+      <Line t={t}>
+        <I />
+        <P t={t}>{"}"}</P>
+        <P t={t}>,</P>
+      </Line>
+
+      {/* tech */}
       <Line t={t}>
         <I />
         <F t={t}>tech</F>
         <Sp />
         <O t={t}>=</O>
         <Sp />
-        <P t={t}>{"{ "}</P>
-        <S t={t}>"Luau"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"RemoteEvents"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"RaycastAPI"</S>
-        <P t={t}>{" }"}</P>
+        <P t={t}>{"{"}</P>
+      </Line>
+      {[
+        ["language",  "Python"],
+        ["llm",       "Ollama · Qwen 2.5 Coder"],
+        ["memory",    "SQLite + ChromaDB"],
+        ["voice",     "Whisper + Resemblyzer"],
+        ["scheduler", "APScheduler"],
+        ["interface", "Textual TUI"],
+        ["search",    "DuckDuckGo API"],
+      ].map(([key, val]) => (
+        <Line t={t} key={key}>
+          <I /><I />
+          <F t={t}>{key}</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${val}"`}</S>
+          <P t={t}>,</P>
+        </Line>
+      ))}
+      <Line t={t}>
+        <I />
+        <P t={t}>{"}"}</P>
         <P t={t}>,</P>
       </Line>
+
       <Line t={t}>
         <I />
         <F t={t}>status</F>
         <Sp />
         <O t={t}>=</O>
         <Sp />
-        <S t={t}>"complete"</S>
+        <S t={t}>"active development"</S>
         <P t={t}>,</P>
+        <Sp />
+        <C t={t}>-- main focus right now</C>
       </Line>
       <Line t={t}>
         <I />
@@ -657,10 +664,12 @@ export function CodeWork({ t }) {
         <Sp />
         <S
           t={t}
-          onClick={() => window.open("https://github.com/aman", "_blank")}
+          onClick={() =>
+            window.open("https://github.com/wthm4n/samita", "_blank")
+          }
           title="View on GitHub"
         >
-          "github.com/aman/gun-system"
+          "github.com/wthm4n/samita"
         </S>
       </Line>
       <Line t={t}>
@@ -668,12 +677,12 @@ export function CodeWork({ t }) {
       </Line>
       <Line t={t} />
 
-      {/* ── COMBAT SYSTEM ── */}
+      {/* ── SIMUX ── */}
       <Line t={t}>
         <C t={t}>{"--[[ ─────────────────────────────────────"}</C>
       </Line>
       <Line t={t} hl>
-        <C t={t}>{"     COMBAT SYSTEM  ·  SYS_002  ·  complete"}</C>
+        <C t={t}>{"     SIMUX  ·  SYS_002  ·  complete"}</C>
       </Line>
       <Line t={t}>
         <C t={t}>{"──────────────────────────────────────]]"}</C>
@@ -683,9 +692,11 @@ export function CodeWork({ t }) {
         <P t={t}>.</P>
         <F
           t={t}
-          onClick={() => window.open("https://github.com/aman", "_blank")}
+          onClick={() =>
+            window.open("https://github.com/wthm4n/simux", "_blank")
+          }
         >
-          CombatSystem
+          Simux
         </F>
         <Sp />
         <O t={t}>=</O>
@@ -701,153 +712,16 @@ export function CodeWork({ t }) {
         <S t={t}>[[</S>
       </Line>
       <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>Melee engine with combo chains,</S>
+        <I /><I />
+        <S t={t}>Online judge platform. Submit code, get a verdict.</S>
       </Line>
       <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>hitstun, state machine core,</S>
+        <I /><I />
+        <S t={t}>React frontend, Node API, isolated Docker worker,</S>
       </Line>
       <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>damage falloff + knockback physics.</S>
-      </Line>
-      <Line t={t}>
-        <I />
-        <S t={t}>]]</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <F t={t}>features</F>
-        <Sp />
-        <O t={t}>=</O>
-        <Sp />
-        <P t={t}>{"{"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"Finite state machine"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"Combo window detection"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"Hitstun + knockback"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>"Region3 hitbox system"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <P t={t}>{"}"}</P>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <F t={t}>tech</F>
-        <Sp />
-        <O t={t}>=</O>
-        <Sp />
-        <P t={t}>{"{ "}</P>
-        <S t={t}>"Luau"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"AnimationTrack"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"BodyVelocity"</S>
-        <P t={t}>{" }"}</P>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <F t={t}>status</F>
-        <Sp />
-        <O t={t}>=</O>
-        <Sp />
-        <S t={t}>"complete"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <F t={t}>link</F>
-        <Sp />
-        <O t={t}>=</O>
-        <Sp />
-        <S
-          t={t}
-          onClick={() => window.open("https://github.com/aman", "_blank")}
-          title="View on GitHub"
-        >
-          "github.com/aman/combat-system"
-        </S>
-      </Line>
-      <Line t={t}>
-        <P t={t}>{"}"}</P>
-      </Line>
-      <Line t={t} />
-
-      {/* ── HOSPITAL MANAGEMENT SYSTEM ── */}
-      <Line t={t}>
-        <C t={t}>{"--[[ ─────────────────────────────────────"}</C>
-      </Line>
-      <Line t={t} hl>
-        <C t={t}>{"     HMS  ·  SYS_003  ·  complete  ·  2024"}</C>
-      </Line>
-      <Line t={t}>
-        <C t={t}>{"──────────────────────────────────────]]"}</C>
-      </Line>
-      <Line t={t}>
-        <T t={t}>Projects</T>
-        <P t={t}>.</P>
-        <F
-          t={t}
-          onClick={() => window.open("https://github.com/aman", "_blank")}
-        >
-          HMS
-        </F>
-        <Sp />
-        <O t={t}>=</O>
-        <Sp />
-        <P t={t}>{"{"}</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <F t={t}>description</F>
-        <Sp />
-        <O t={t}>=</O>
-        <Sp />
-        <S t={t}>[[</S>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>Full production hospital management system.</S>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>Patient records, appointments, billing,</S>
-      </Line>
-      <Line t={t}>
-        <I />
-        <I />
-        <S t={t}>staff management — built solo in Python.</S>
+        <I /><I />
+        <S t={t}>RabbitMQ queue, Python judge. Full pipeline.</S>
       </Line>
       <Line t={t}>
         <I />
@@ -861,13 +735,16 @@ export function CodeWork({ t }) {
         <O t={t}>=</O>
         <Sp />
         <P t={t}>{"{ "}</P>
+        <S t={t}>"React"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <S t={t}>"Node.js"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <S t={t}>"Docker"</S>
+        <P t={t}>,</P>
+        <Sp />
         <S t={t}>"Python"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"SQLite"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"Tkinter"</S>
         <P t={t}>{" }"}</P>
         <P t={t}>,</P>
       </Line>
@@ -878,47 +755,178 @@ export function CodeWork({ t }) {
         <O t={t}>=</O>
         <Sp />
         <S t={t}>"complete"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I />
-        <F t={t}>link</F>
-        <Sp />
-        <O t={t}>=</O>
-        <Sp />
-        <S
-          t={t}
-          onClick={() => window.open("https://github.com/aman", "_blank")}
-          title="View on GitHub"
-        >
-          "github.com/aman/hms"
-        </S>
       </Line>
       <Line t={t}>
         <P t={t}>{"}"}</P>
       </Line>
       <Line t={t} />
 
-      {/* ── WIP ── */}
+      {/* ── AMNA V5 ── */}
       <Line t={t}>
-        <C t={t}>-- WIP ─────────────────────────────────</C>
+        <C t={t}>{"--[[ ─────────────────────────────────────"}</C>
+      </Line>
+      <Line t={t} hl>
+        <C t={t}>{"     AMNA V5  ·  SYS_003  ·  complete"}</C>
       </Line>
       <Line t={t}>
-        <K t={t}>local</K>
+        <C t={t}>{"──────────────────────────────────────]]"}</C>
+      </Line>
+      <Line t={t}>
+        <T t={t}>Projects</T>
+        <P t={t}>.</P>
+        <F
+          t={t}
+          onClick={() =>
+            window.open("https://github.com/wthm4n/amna-v5", "_blank")
+          }
+        >
+          AmnaV5
+        </F>
         <Sp />
-        <F t={t}>wip</F>
+        <O t={t}>=</O>
+        <Sp />
+        <P t={t}>{"{"}</P>
+      </Line>
+      <Line t={t}>
+        <I />
+        <F t={t}>description</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <S t={t}>[[</S>
+      </Line>
+      <Line t={t}>
+        <I /><I />
+        <S t={t}>Full-featured Discord bot — V5 of an evolving system.</S>
+      </Line>
+      <Line t={t}>
+        <I /><I />
+        <S t={t}>Moderation, music, fun, social commands, leveling,</S>
+      </Line>
+      <Line t={t}>
+        <I /><I />
+        <S t={t}>OOP architecture, persistent MongoDB datastore.</S>
+      </Line>
+      <Line t={t}>
+        <I />
+        <S t={t}>]]</S>
+        <P t={t}>,</P>
+      </Line>
+      <Line t={t}>
+        <I />
+        <F t={t}>tech</F>
         <Sp />
         <O t={t}>=</O>
         <Sp />
         <P t={t}>{"{ "}</P>
-        <S t={t}>"Inventory"</S>
+        <S t={t}>"discord.js"</S>
         <P t={t}>,</P>
         <Sp />
-        <S t={t}>"DataStore"</S>
+        <S t={t}>"Node.js"</S>
         <P t={t}>,</P>
         <Sp />
-        <S t={t}>"UI Lib"</S>
+        <S t={t}>"MongoDB"</S>
         <P t={t}>{" }"}</P>
+        <P t={t}>,</P>
+      </Line>
+      <Line t={t}>
+        <I />
+        <F t={t}>status</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <S t={t}>"complete"</S>
+      </Line>
+      <Line t={t}>
+        <P t={t}>{"}"}</P>
+      </Line>
+      <Line t={t} />
+
+      {/* ── COMBAT / GUN SYSTEMS ── */}
+      <Line t={t}>
+        <C t={t}>{"--[[ ─────────────────────────────────────"}</C>
+      </Line>
+      <Line t={t} hl>
+        <C t={t}>{"     ROBLOX SYSTEMS  ·  SYS_004–005  ·  complete"}</C>
+      </Line>
+      <Line t={t}>
+        <C t={t}>{"──────────────────────────────────────]]"}</C>
+      </Line>
+      <Line t={t}>
+        <T t={t}>Projects</T>
+        <P t={t}>.</P>
+        <F
+          t={t}
+          onClick={() =>
+            window.open(
+              "https://github.com/wthm4n/Roblox-Studio",
+              "_blank"
+            )
+          }
+        >
+          RobloxSystems
+        </F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <P t={t}>{"{"}</P>
+      </Line>
+      <Line t={t}>
+        <I />
+        <F t={t}>includes</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <P t={t}>{"{"}</P>
+      </Line>
+      {[
+        ["CombatSystem", "state machine · hitbox · combo chains · knockback"],
+        ["GunSystem",    "raycasting · lag compensation · per-gun recoil curves"],
+        ["GojoDomain",   "cinematic domain expansion · env overhaul · ability trigger"],
+        ["NPCAISystem",  "personality-based NPC AI · pathfinding · squad behavior"],
+        ["AIDirector",   "dynamic difficulty scaling · pacing manager · stress calc"],
+      ].map(([name, desc]) => (
+        <Line t={t} key={name}>
+          <I /><I />
+          <F t={t}>{name}</F>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${desc}"`}</S>
+          <P t={t}>,</P>
+        </Line>
+      ))}
+      <Line t={t}>
+        <I />
+        <P t={t}>{"}"}</P>
+        <P t={t}>,</P>
+      </Line>
+      <Line t={t}>
+        <I />
+        <F t={t}>tech</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <P t={t}>{"{ "}</P>
+        <S t={t}>"Luau"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <S t={t}>"Roblox Studio"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <S t={t}>"OOP"</S>
+        <P t={t}>{" }"}</P>
+        <P t={t}>,</P>
+      </Line>
+      <Line t={t}>
+        <I />
+        <F t={t}>status</F>
+        <Sp />
+        <O t={t}>=</O>
+        <Sp />
+        <S t={t}>"complete"</S>
+      </Line>
+      <Line t={t}>
+        <P t={t}>{"}"}</P>
       </Line>
       <Line t={t} />
 
@@ -933,15 +941,7 @@ export function CodeWork({ t }) {
 }
 
 // ── contact.lua ──────────────────────────────────────────────────────────────
-// Updated to use token component API correctly:
-//   • All <Line> get t={t}
-//   • Spacing via <Sp /> — no JSX whitespace hacks
-//   • <I depth={n} t={t} /> for indent guides
-//   • Clickable <F> tokens link out where appropriate
-//   • Richer inline comments for human readability
-
 export function CodeContact({ t }) {
-  // ── link helper — opens URL in new tab ──────────────────────────────────
   const link = (url) => () => window.open(url, "_blank", "noopener,noreferrer");
 
   return (
@@ -969,7 +969,7 @@ export function CodeContact({ t }) {
 
       <Line t={t} />
 
-      {/* ── Direct contact fields (highlighted — "edit me") ─────────────── */}
+      {/* ── Direct contact fields ────────────────────────────────────────── */}
       <Line t={t} hl>
         <T t={t}>Contact</T>
         <P t={t}>.</P>
@@ -1049,6 +1049,14 @@ export function CodeContact({ t }) {
 
       <Line t={t}>
         <I depth={1} t={t} />
+        <S t={t}>"AI engineering roles"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <C t={t}>-- my main focus now</C>
+      </Line>
+
+      <Line t={t}>
+        <I depth={1} t={t} />
         <S t={t}>"Roblox game systems"</S>
         <P t={t}>,</P>
         <Sp />
@@ -1097,7 +1105,6 @@ export function CodeContact({ t }) {
         <P t={t}>)</P>
       </Line>
 
-      {/* if not project */}
       <Line t={t}>
         <I depth={1} t={t} />
         <K t={t}>if</K>
@@ -1121,7 +1128,6 @@ export function CodeContact({ t }) {
         <K t={t}>end</K>
       </Line>
 
-      {/* happy path */}
       <Line t={t}>
         <I depth={1} t={t} />
         <K t={t}>return</K>
@@ -1147,8 +1153,7 @@ export function CodeContact({ t }) {
 
 // ── package.json ─────────────────────────────────────────────────────────────
 // Angle: TECHNICAL SPEC. Hard skills, deps, config.
-// The "hiring manager 30-second scan" file.
-// No story. No fluff. Just: here's exactly what you're getting.
+// Now correctly reflects Samita as the main project.
 
 export function CodePkg({ t }) {
   const link = (url) => () => window.open(url, "_blank", "noopener,noreferrer");
@@ -1224,36 +1229,36 @@ export function CodePkg({ t }) {
       </Line>
       <Line t={t}>
         <I depth={1} t={t} />
-        <S t={t}>"bugs"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S
-          t={t}
-          onClick={link("mailto:noenoeke11@gmail.com")}
-          title="Report or just say hi"
-        >
-          "noenoeke11@gmail.com"
-        </S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={1} t={t} />
         <S t={t}>"description"</S>
         <P t={t}>:</P>
         <Sp />
-        <S t={t}>"game dev · fullstack · self-taught · delhi"</S>
+        <S t={t}>"AI engineer · game dev · fullstack · self-taught · delhi"</S>
         <P t={t}>,</P>
       </Line>
 
       <Line t={t} />
 
-      {/* ── keywords — recruiter / search scan ──────────────────────────────── */}
+      {/* ── keywords ────────────────────────────────────────────────────────── */}
       <Line t={t} hl>
         <I depth={1} t={t} />
         <S t={t}>"keywords"</S>
         <P t={t}>:</P>
         <Sp />
         <P t={t}>[</P>
+      </Line>
+      <Line t={t}>
+        <I depth={2} t={t} />
+        <S t={t}>"ai-engineering"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <S t={t}>"local-llm"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <S t={t}>"rag"</S>
+        <P t={t}>,</P>
+        <Sp />
+        <S t={t}>"voice-ai"</S>
+        <P t={t}>,</P>
       </Line>
       <Line t={t}>
         <I depth={2} t={t} />
@@ -1266,21 +1271,10 @@ export function CodePkg({ t }) {
         <S t={t}>"roblox"</S>
         <P t={t}>,</P>
         <Sp />
-        <S t={t}>"discord-bot"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
         <S t={t}>"fullstack"</S>
         <P t={t}>,</P>
         <Sp />
-        <S t={t}>"typescript"</S>
-        <P t={t}>,</P>
-        <Sp />
         <S t={t}>"open-to-collab"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"commission-friendly"</S>
       </Line>
       <Line t={t}>
         <I depth={1} t={t} />
@@ -1289,7 +1283,7 @@ export function CodePkg({ t }) {
 
       <Line t={t} />
 
-      {/* ── dependencies — core languages you always bring ──────────────────── */}
+      {/* ── dependencies ────────────────────────────────────────────────────── */}
       <Line t={t}>
         <I depth={1} t={t} />
         <S t={t}>"dependencies"</S>
@@ -1299,55 +1293,29 @@ export function CodePkg({ t }) {
         <Sp />
         <C t={t}>// ships with every build</C>
       </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"lua"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"*"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <C t={t}>// primary — roblox, executors, game systems</C>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"javascript"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"*"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"typescript"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"^5.0.0"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"html"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"*"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"css"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"*"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"scss"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"*"</S>
-      </Line>
+      {[
+        ["python",     "*",       "primary — Samita, AI systems"],
+        ["lua",        "*",       "roblox, executors, game systems"],
+        ["javascript", "*",       "bots, web, tooling"],
+        ["typescript", "^5.0.0",  ""],
+        ["html",       "*",       ""],
+        ["css",        "*",       ""],
+      ].map(([name, ver, note]) => (
+        <Line t={t} key={name}>
+          <I depth={2} t={t} />
+          <S t={t}>{`"${name}"`}</S>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${ver}"`}</S>
+          <P t={t}>,</P>
+          {note && (
+            <>
+              <Sp />
+              <C t={t}>{`// ${note}`}</C>
+            </>
+          )}
+        </Line>
+      ))}
       <Line t={t}>
         <I depth={1} t={t} />
         <P t={t}>{"}"}</P>
@@ -1356,7 +1324,7 @@ export function CodePkg({ t }) {
 
       <Line t={t} />
 
-      {/* ── peerDependencies — ecosystem / frameworks ───────────────────────── */}
+      {/* ── peerDependencies ────────────────────────────────────────────────── */}
       <Line t={t}>
         <I depth={1} t={t} />
         <S t={t}>"peerDependencies"</S>
@@ -1366,69 +1334,24 @@ export function CodePkg({ t }) {
         <Sp />
         <C t={t}>// plug me into your stack</C>
       </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"react"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"^18.0.0"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"node"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"^=18"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"express"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"^4.0.0"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"mongodb"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"*"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"discord.js"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"^14.0.0"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"python"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"^3.12"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"java"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"^21.0.0"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"c"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"*"</S>
-      </Line>
+      {[
+        ["ollama",       "*"],
+        ["chromadb",     "*"],
+        ["react",        "^18.0.0"],
+        ["node",         "^18"],
+        ["discord.js",   "^14.0.0"],
+        ["mongodb",      "*"],
+        ["python",       "^3.12"],
+      ].map(([name, ver]) => (
+        <Line t={t} key={name}>
+          <I depth={2} t={t} />
+          <S t={t}>{`"${name}"`}</S>
+          <P t={t}>:</P>
+          <Sp />
+          <S t={t}>{`"${ver}"`}</S>
+          <P t={t}>,</P>
+        </Line>
+      ))}
       <Line t={t}>
         <I depth={1} t={t} />
         <P t={t}>{"}"}</P>
@@ -1437,48 +1360,7 @@ export function CodePkg({ t }) {
 
       <Line t={t} />
 
-      {/* ── devDependencies — things being learned / experimental ───────────── */}
-      <Line t={t}>
-        <I depth={1} t={t} />
-        <S t={t}>"devDependencies"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <P t={t}>{"{"}</P>
-        <Sp />
-        <C t={t}>// in progress</C>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"advanced-lua-patterns"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"workspace:*"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"metatables-deep-dive"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"workspace:*"</S>
-        <P t={t}>,</P>
-      </Line>
-      <Line t={t}>
-        <I depth={2} t={t} />
-        <S t={t}>"systems-design"</S>
-        <P t={t}>:</P>
-        <Sp />
-        <S t={t}>"workspace:*"</S>
-      </Line>
-      <Line t={t}>
-        <I depth={1} t={t} />
-        <P t={t}>{"}"}</P>
-        <P t={t}>,</P>
-      </Line>
-
-      <Line t={t} />
-
-      {/* ── scripts — how to run me ──────────────────────────────────────────── */}
+      {/* ── scripts ─────────────────────────────────────────────────────────── */}
       <Line t={t}>
         <I depth={1} t={t} />
         <S t={t}>"scripts"</S>
@@ -1525,7 +1407,7 @@ export function CodePkg({ t }) {
 
       <Line t={t} />
 
-      {/* ── config — the truths that don't fit anywhere else ────────────────── */}
+      {/* ── config ──────────────────────────────────────────────────────────── */}
       <Line t={t}>
         <I depth={1} t={t} />
         <S t={t}>"config"</S>
@@ -1557,13 +1439,13 @@ export function CodePkg({ t }) {
         <P t={t}>:</P>
         <Sp />
         <P t={t}>[</P>
+        <S t={t}>"ai-roles"</S>
+        <P t={t}>,</P>
+        <Sp />
         <S t={t}>"commissions"</S>
         <P t={t}>,</P>
         <Sp />
         <S t={t}>"collab"</S>
-        <P t={t}>,</P>
-        <Sp />
-        <S t={t}>"rev-share"</S>
         <P t={t}>,</P>
         <Sp />
         <S t={t}>"full-time"</S>
@@ -1583,7 +1465,7 @@ export function CodePkg({ t }) {
         <S t={t}>"goal"</S>
         <P t={t}>:</P>
         <Sp />
-        <S t={t}>"ship a game worth playing with a team worth keeping"</S>
+        <S t={t}>"build AI that actually knows you"</S>
       </Line>
       <Line t={t}>
         <I depth={1} t={t} />
@@ -1598,8 +1480,7 @@ export function CodePkg({ t }) {
 }
 
 // ── README.md ─────────────────────────────────────────────────────────────────
-// Angle: PROJECT SHOWCASE. What you've built. Social proof. Links.
-// No life story — that's about.lua. No raw deps — that's package.json.
+// Angle: PROJECT SHOWCASE. Samita first and large. Everything else secondary.
 
 export function CodeReadme({ t }) {
   const link = (url) => window.open(url, "_blank", "noopener,noreferrer");
@@ -1671,7 +1552,62 @@ export function CodeReadme({ t }) {
       letterSpacing: "0.01em",
     },
     p: { margin: "0 0 10px", color: t.fg, fontSize: 12.5, lineHeight: 1.65 },
-    // ── Project card ──
+    // ── Flagship card ─────────────────────────────────────────────────────
+    flagshipCard: {
+      padding: "16px 18px",
+      borderRadius: 10,
+      background: `${t.func}0d`,
+      border: `1px solid ${t.func}33`,
+      borderLeft: `3px solid ${t.func}`,
+      marginBottom: 14,
+      cursor: "pointer",
+      transition: "border-color 0.15s, background 0.15s",
+    },
+    flagshipTitle: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 6,
+    },
+    flagshipName: {
+      fontWeight: 800,
+      color: t.func,
+      fontSize: 15,
+      fontFamily: "monospace",
+      letterSpacing: "-0.3px",
+    },
+    flagshipBadge: {
+      fontSize: 10,
+      fontWeight: 700,
+      background: `${t.func}22`,
+      color: t.func,
+      padding: "2px 8px",
+      borderRadius: 12,
+      letterSpacing: "0.05em",
+      textTransform: "uppercase",
+    },
+    flagshipDesc: {
+      fontSize: 12.5,
+      color: t.fg,
+      lineHeight: 1.6,
+      marginBottom: 10,
+    },
+    subsystemGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))",
+      gap: 5,
+      marginBottom: 10,
+    },
+    subsystem: (color) => ({
+      fontSize: 11,
+      padding: "4px 8px",
+      borderRadius: 5,
+      background: `${color}12`,
+      border: `1px solid ${color}28`,
+      color: color,
+      fontFamily: "monospace",
+    }),
+    // ── Regular project card ──
     card: {
       padding: "10px 13px",
       borderRadius: 8,
@@ -1701,48 +1637,31 @@ export function CodeReadme({ t }) {
       borderRadius: "50%",
       background: done ? t.string : t.number,
       flexShrink: 0,
-      marginTop: 5,
-      boxShadow: done ? `0 0 5px ${t.string}66` : `0 0 5px ${t.number}66`,
+      marginTop: 4,
+      boxShadow: done ? `0 0 4px ${t.string}66` : `0 0 4px ${t.number}66`,
     }),
     tag: (color) => ({
       display: "inline-block",
+      fontSize: 10,
       padding: "1px 7px",
-      borderRadius: 4,
+      borderRadius: 10,
       background: `${color}18`,
       color: color,
-      fontSize: 10,
-      fontWeight: 600,
       marginRight: 4,
       marginTop: 5,
-      letterSpacing: "0.03em",
-      border: `1px solid ${color}28`,
+      fontFamily: "monospace",
     }),
-    // ── Contact ──
     contactRow: {
       display: "flex",
       alignItems: "center",
       gap: 10,
-      padding: "7px 0",
-      borderBottom: `1px solid ${t.comment}12`,
-      fontSize: 12.5,
+      padding: "6px 0",
+      borderBottom: `1px solid ${t.comment}11`,
       cursor: "pointer",
-      transition: "opacity 0.12s",
+      transition: "opacity 0.15s",
     },
-    contactIcon: {
-      fontSize: 14,
-      width: 20,
-      textAlign: "center",
-      flexShrink: 0,
-    },
-    contactLabel: {
-      color: t.comment,
-      width: 60,
-      fontSize: 10.5,
-      fontWeight: 700,
-      textTransform: "uppercase",
-      letterSpacing: "0.06em",
-      flexShrink: 0,
-    },
+    contactIcon: { fontSize: 14, flexShrink: 0, width: 20, textAlign: "center" },
+    contactLabel: { fontSize: 11.5, color: t.comment, width: 60, flexShrink: 0 },
     contactValue: {
       color: t.func,
       fontFamily: "monospace",
@@ -1767,117 +1686,53 @@ export function CodeReadme({ t }) {
     },
   };
 
+  const samitaSubsystems = [
+    { label: "agent + planner", color: t.func },
+    { label: "vector memory (RAG)", color: t.type },
+    { label: "voice + speaker verify", color: t.keyword },
+    { label: "local LLM (Ollama)", color: t.string },
+    { label: "personality layer", color: t.number },
+    { label: "web search", color: t.func },
+    { label: "reminder scheduler", color: t.type },
+    { label: "terminal UI", color: t.comment },
+  ];
+
   const projects = [
- {
-      name: "Combat System",
-      desc: "Fluid, responsive combat system for Roblox. Full OOP architecture with hitbox detection, combo chains, and state management. Animations rigged in Moon Animator, VFX and assets crafted in Photoshop.",
-      lang: "Lua",
-      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/combat-system",
+    {
+      name: "Simux",
+      desc: "Online judge platform. React frontend, Node API, isolated Docker worker, Python judge. Submit code — get a verdict.",
+      lang: "React · Node · Docker · Python",
+      url: "https://github.com/wthm4n/simux",
       tags: [
-        { label: "hitbox detection", color: t.keyword },
-        { label: "combo chains", color: t.func },
-        { label: "state machine", color: t.type },
-        { label: "moon animator", color: t.string },
+        { label: "docker", color: t.func },
+        { label: "queue", color: t.type },
+        { label: "judge", color: t.keyword },
+        { label: "fullstack", color: t.string },
       ],
       done: true,
     },
     {
-      name: "Gun System",
-      desc: "Gun mechanic system built for Roblox — fully OOP. Custom weapon logic, cooldown management, and recoil. Animations done in Moon Animator with Photoshop-made VFX and assets.",
-      lang: "Lua",
-      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/gun-system",
-      tags: [
-        { label: "raycasting", color: t.keyword },
-        { label: "recoil", color: t.number },
-        { label: "ammo system", color: t.func },
-        { label: "photoshop vfx", color: t.string },
-      ],
-      done: true,
-    },
-    {
-      name: "Gojo Domain",
-      desc: "Infinity Domain Expansion recreation in Roblox. Full OOP system driving the domain trigger, environment shift, and ability logic. Moon Animator for cinematic animations, Photoshop for all VFX and visual assets.",
-      lang: "Lua",
-      url: "https://github.com/wthm4n/Roblox-Studio/tree/main/gojo-domain",
-      tags: [
-        { label: "env overhaul", color: t.type },
-        { label: "ability trigger", color: t.keyword },
-        { label: "cinematic anim", color: t.func },
-        { label: "custom vfx", color: t.string },
-      ],
-      done: true,
-    },
-    {
-      name: "Nyxus",
-      desc: "Manager library housing 7+ custom UI libs for Roblox executors and in-game interfaces. Full OOP architecture with a unified base — plug in any lib, same API.",
-      lang: "Lua",
-      url: "https://github.com/wthm4n/Nyxus",
-      tags: [
-        { label: "lua", color: t.keyword },
-        { label: "OOP", color: t.func },
-        { label: "roblox", color: t.type },
-        { label: "library", color: t.string },
-      ],
-      done: true,
-    },
-    {
-      name: "amna-v5",
-      desc: "Full-featured Discord bot — moderation, music, fun, social commands. Built fully OOP in JavaScript with persistent datastore and a proper backend.",
-      lang: "JavaScript",
+      name: "Amna V5",
+      desc: "Fifth version of a Discord bot platform. Moderation, music, leveling, social. Full OOP, MongoDB persistence.",
+      lang: "JavaScript · Node · MongoDB",
       url: "https://github.com/wthm4n/amna-v5",
       tags: [
         { label: "discord.js", color: t.type },
-        { label: "node", color: t.string },
         { label: "OOP", color: t.func },
         { label: "mongodb", color: t.keyword },
       ],
       done: true,
     },
     {
-      name: "BillDashboard",
-      desc: "Personal GST billing tool. Generates compliant bills via the official Government GST API. Clean HTML/CSS/JS frontend with a lightweight backend.",
-      lang: "JS + Python",
-      url: "https://github.com/wthm4n/BillDashboard",
+      name: "Roblox Systems",
+      desc: "Combat system, gun system, NPC AI director, domain expansion — all OOP, all in Luau. Moon Animator rigs, custom VFX.",
+      lang: "Lua · Roblox Studio",
+      url: "https://github.com/wthm4n/Roblox-Studio",
       tags: [
-        { label: "html/css", color: t.number },
-        { label: "govt-api", color: t.type },
-        { label: "billing", color: t.string },
-      ],
-      done: true,
-    },
-    {
-      name: "MusicBot",
-      desc: "Python Discord music bot with advanced search — play by name, URL, or anything. Queue management, controls, the works.",
-      lang: "Python",
-      url: "https://github.com/wthm4n/MusicBot",
-      tags: [
-        { label: "python", color: t.type },
-        { label: "discord", color: t.func },
-        { label: "ffmpeg", color: t.string },
-      ],
-      done: true,
-    },
-    {
-      name: "DBS Mods",
-      desc: "Mods for an open-source Discord bot framework — extended it to make bot creation even simpler. Shipped in both JS and TS.",
-      lang: "JS / TS",
-      url: "https://github.com/wthm4n/DBT-Source",
-      tags: [
-        { label: "typescript", color: t.type },
-        { label: "open-source", color: t.string },
-        { label: "dx", color: t.func },
-      ],
-      done: true,
-    },
-    {
-      name: "HMS",
-      desc: "Hospital Management System in Python with MongoDB backend. Patient records, appointments, billing — full CRUD.",
-      lang: "Python",
-      url: "https://github.com/wthm4n/hospital-management-system",
-      tags: [
-        { label: "python", color: t.type },
-        { label: "mongodb", color: t.keyword },
-        { label: "cli", color: t.comment },
+        { label: "luau", color: t.keyword },
+        { label: "state machine", color: t.func },
+        { label: "raycasting", color: t.type },
+        { label: "OOP", color: t.string },
       ],
       done: true,
     },
@@ -1904,11 +1759,11 @@ export function CodeReadme({ t }) {
     <div style={styles.root}>
       {/* ── Header ──────────────────────────────────────────────────────────── */}
       <div style={styles.banner}>
-        <div style={styles.avatar}>👾</div>
+        <div style={styles.avatar}>🤖</div>
         <div>
           <h1 style={styles.h1}>wthm4n / aman-koushal</h1>
           <p style={styles.subtitle}>
-            game dev · fullstack · Delhi 🇮🇳 · tfm4n.me
+            AI engineer · game dev · fullstack · Delhi 🇮🇳 · tfm4n.me
           </p>
         </div>
       </div>
@@ -1918,31 +1773,84 @@ export function CodeReadme({ t }) {
         <span style={styles.badge(`${t.string}22`, t.string)}>
           ✅ open to work
         </span>
-        <span style={styles.badge(`${t.func}22`, t.func)}>🎮 game dev</span>
+        <span style={styles.badge(`${t.func}22`, t.func)}>🤖 AI engineer</span>
+        <span style={styles.badge(`${t.keyword}22`, t.keyword)}>🎮 game dev</span>
         <span style={styles.badge(`${t.type}22`, t.type)}>🌐 fullstack</span>
         <span style={styles.badge(`${t.number}22`, t.number)}>
           🎓 B.Tech CSE AI/ML
         </span>
-        <span style={styles.badge(`${t.keyword}22`, t.keyword)}>
+        <span style={styles.badge(`${t.comment}22`, t.comment)}>
           📍 Delhi, IN
         </span>
       </div>
 
       <hr style={styles.hr} />
 
-      {/* ── Pitch — short, no life story ────────────────────────────────────── */}
       <h2 style={styles.h2}>⚡ What I build</h2>
       <p style={styles.p}>
-        Game systems, Discord bots, fullstack web tools — whatever needs
-        building. Self-taught, commission-funded, currently doing a B.Tech I
-        mostly use as wifi. Looking for a team to make something actually worth
-        shipping.
+        Currently deep in AI engineering — building Samita, a local AI assistant
+        with persistent memory, voice interaction, and autonomous task execution.
+        Also: game systems, Discord bots, fullstack web tools. Self-taught,
+        commission-funded, doing a B.Tech I mostly use as wifi.
       </p>
 
       <hr style={styles.hr} />
 
-      {/* ── Projects ────────────────────────────────────────────────────────── */}
-      <h2 style={styles.h2}>📦 Projects</h2>
+      {/* ── ⭐ SAMITA FLAGSHIP BLOCK ─────────────────────────────────────────── */}
+      <h2 style={styles.h2}>⭐ Flagship — Samita AI</h2>
+
+      <div
+        style={styles.flagshipCard}
+        onClick={() => link("https://github.com/wthm4n/samita")}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = `${t.func}66`;
+          e.currentTarget.style.background = `${t.func}15`;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = `${t.func}33`;
+          e.currentTarget.style.background = `${t.func}0d`;
+        }}
+      >
+        <div style={styles.flagshipTitle}>
+          <span style={styles.flagshipName}>Samita</span>
+          <span style={styles.flagshipBadge}>active</span>
+        </div>
+
+        <p style={styles.flagshipDesc}>
+          A personality-driven AI assistant designed to feel less like a chatbot
+          and more like a real companion. Built around a local LLM with
+          persistent memory, semantic recall, voice interaction, autonomous task
+          execution, and intelligent request routing — fully self-hosted,
+          runs locally via Ollama.
+        </p>
+
+        <div style={styles.subsystemGrid}>
+          {samitaSubsystems.map(({ label, color }) => (
+            <span key={label} style={styles.subsystem(color)}>
+              {label}
+            </span>
+          ))}
+        </div>
+
+        <div style={{ fontSize: 11, color: t.comment, fontFamily: "monospace" }}>
+          Python · Ollama · SQLite + ChromaDB · Whisper · Resemblyzer ·
+          APScheduler · Textual TUI ·{" "}
+          <span
+            style={{
+              color: t.func,
+              textDecoration: "underline",
+              textDecorationStyle: "dotted",
+            }}
+          >
+            github.com/wthm4n/samita
+          </span>
+        </div>
+      </div>
+
+      <hr style={styles.hr} />
+
+      {/* ── Other Projects ───────────────────────────────────────────────────── */}
+      <h2 style={styles.h2}>📦 Other Projects</h2>
       {projects.map(({ name, desc, lang, tags, done, url }) => (
         <div
           key={name}
@@ -1974,7 +1882,7 @@ export function CodeReadme({ t }) {
               title={done ? "shipped" : "wip"}
             />
           </div>
-          <div style={styles.cardMeta}>{lang} · {url.replace("https://", "")}</div>
+          <div style={styles.cardMeta}>{lang}</div>
         </div>
       ))}
 
@@ -2004,8 +1912,8 @@ export function CodeReadme({ t }) {
       <div style={styles.callout}>
         🔥
         <span>
-          Open to commissions, collabs, rev-share, or full-time. DM on Discord
-          or email — I respond fast.
+          Open to AI engineering roles, commissions, collabs, rev-share, or
+          full-time. DM on Discord or email — I respond fast.
         </span>
       </div>
     </div>
