@@ -168,12 +168,12 @@ export const THEMES = {
 };
 
 export const META = {
-  about:   { file: "about.lua",    folder: "pages", lang: "Luau", lines: 34 },
-  skills:  { file: "skills.lua",   folder: "pages", lang: "Luau", lines: 25 },
-  work:    { file: "projects.lua", folder: "pages", lang: "Luau", lines: 38 },
-  contact: { file: "contact.lua",  folder: "pages", lang: "Luau", lines: 27 },
-  pkg:     { file: "package.json", folder: "meta",  lang: "JSON",     lines: 28 },
-  readme:  { file: "README.md",    folder: "meta",  lang: "Markdown", lines: 24 },
+  about: { file: "about.lua", folder: "pages", lang: "Luau", lines: 34 },
+  skills: { file: "skills.lua", folder: "pages", lang: "Luau", lines: 25 },
+  work: { file: "projects.lua", folder: "pages", lang: "Luau", lines: 38 },
+  contact: { file: "contact.lua", folder: "pages", lang: "Luau", lines: 27 },
+  pkg: { file: "package.json", folder: "meta", lang: "JSON", lines: 28 },
+  readme: { file: "README.md", folder: "meta", lang: "Markdown", lines: 24 },
 };
 export const TAB_COLORS = {
   about: "#000080", skills: "#000080", work: "#000080",
